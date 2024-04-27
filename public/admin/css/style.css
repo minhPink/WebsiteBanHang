@@ -1,0 +1,137 @@
+/* Header */
+.header {
+    background: #202020;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header .inner-logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* End Header */
+
+/* Body */
+.body .sider {
+    width: 150px;
+    background: #323232;
+    color: #fff;
+    height: calc(100vh - 56px);
+    position: fixed;
+    top: 56px;
+    left: 0;
+}
+
+.body .main {
+    margin: 15px;
+    position: relative;
+    left: 150px;
+    width: calc(100% - 100px);
+}
+/* End Body */
+
+/* Sider */
+.sider .inner-menu ul {
+    list-style: none;
+    padding: 0;
+    margin : 0;
+}
+
+.sider .inner-menu ul li a {
+    color: #fff;
+    display: block;
+    padding: 6px 10px;
+    border-bottom: 1px solid #51515151;
+}
+/* End Sider */
+
+/* Notification */
+.message.info #alert{
+    display: flex;
+    border: 2px solid #ddd;
+    width: 330px;
+    right: 100px;
+    top: 0;
+    position: absolute;
+    padding: 10px 0;
+    animation: nonealert;
+}
+
+@keyframes nonealert {
+    
+}
+
+.message.info .x {
+    margin: 0 15px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background:yellowgreen;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+.message.info [show-alert] {
+    font-size: 17px;
+    font-weight: 700;
+    margin-left: 25px;
+}
+
+.message.info #alert::after{
+    content: '';
+    width: 100%;
+    position: absolute;
+    height: 3px;
+    top: 95%;
+    animation: anima 5s linear forwards;
+    background: orange;
+}
+
+@keyframes anima {
+    100%{
+        width: 0;
+    }
+}
+
+.message.info .old-class.hidden-alert{
+    display: none !important;
+}
+/* End Notification */
+
+/* Preview IMG */
+[preview-img] {
+    width: 200px;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+[preview-img][src=""] {
+    display: none;
+}
+/* End Preview IMG */
+
+/* Remove Preview */
+[remove-preview] {
+    font-size: 15px;
+    padding: 5px;
+    background-color:green;
+    margin-left: 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.hidden-remove {
+    display: none;
+}
+
+.show-remove {
+    display: inline;
+}
+/* End Remove Preview */
