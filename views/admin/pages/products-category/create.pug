@@ -1,5 +1,6 @@
 extends ../../layouts/default.pug
 include ../../mixins/alert.pug
+include ../../mixins/select-tree.pug
 
 block main 
 
@@ -24,12 +25,19 @@ block main
             ) 
         div(class="form-group" style="width: 95%")
             label(for="paren_id") Tiêu đề cha
-            input(
-                type="text"
-                id="paren_id"
+            //- input(
+            //-     type="text"
+            //-     id="paren_id"
+            //-     name="paren_id"
+            //-     class="form-control"
+            //- )
+            select(
                 name="paren_id"
+                id="paren_id"
                 class="form-control"
             )
+                option(disabled selected) -- Chon hanh dong --
+                +select-tree(records)
         div(class="form-group" style="width: 95%")
             labe(for="desc") Mô tả 
             textarea(
