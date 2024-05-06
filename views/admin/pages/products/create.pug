@@ -1,5 +1,6 @@
 extends ../../layouts/default.pug
 include ../../mixins/alert.pug
+include ../../mixins/select-tree.pug
 
 block main 
 
@@ -22,6 +23,15 @@ block main
                 class="form-control"
                 required
             ) 
+        div(class="form-group" style="width: 95%")
+            label(for="products_category_id") Chọn danh mục
+            select(
+                name="products_category_id"
+                id="products_category_id"
+                class="form-control"
+            )
+                option(disabled selected) -- Chon hanh dong --
+                +select-tree(records)
         div(class="form-group" style="width: 95%")
             labe(for="desc") Mô tả 
             textarea(

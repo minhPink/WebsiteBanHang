@@ -24,7 +24,8 @@ router.post(
     upload.single('thumbnail'),
     uploadCloud.upload,
     validates.createPostValidate,
-    controller.createPost);
+    controller.createPost
+);
 
 router.get("/edit/:id", controller.editGetItem);
 

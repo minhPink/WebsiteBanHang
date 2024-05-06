@@ -1,5 +1,6 @@
 extends ../../layouts/default.pug
 include ../../mixins/alert.pug
+include ../../mixins/select-tree.pug
 
 block main 
 
@@ -23,11 +24,20 @@ block main
                 class="form-control"
                 required
                 value=product.title
-            ) 
+            )
+        div(class="form-group" style="width: 95%")
+            label(for="products_category_id") Tiêu đề cha
+            select(
+                name="products_category_id"
+                id="products_category_id"
+                class="form-control"
+            )
+                option(value="") -- Chon hanh dong --
+                +select-tree(records, 1, product.products_category_id)
         div(class="form-group" style="width: 95%")
             labe(for="desc") Mô tả 
             textarea(
-                class="form-control"
+                class="form-control tinymce-textarea"
                 id="desc"
                 name="description"
                 rows="5"

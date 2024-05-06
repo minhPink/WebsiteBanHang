@@ -10,8 +10,8 @@ const productCategorySchema = new mongoose.Schema({
     },
     description: String,
     thumbnail: String,
-    status: String,
     position: Number,
+    status: String,
     slug: {
         type: String,
         slug: "title",

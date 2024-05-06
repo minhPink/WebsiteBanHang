@@ -6,6 +6,8 @@ const categoryRoutes = require("./products-category.router");
 
 const systemConfig = require("../../config/system");
 
+const roleRouter = require("./roles.router");
+
 
 
 
@@ -17,4 +19,6 @@ module.exports = (app) => {
     app.use(PATH_ADMIN + "/products", productsRoutes);
 
     app.use(PATH_ADMIN + "/products-category", categoryRoutes);
+
+    app.use(PATH_ADMIN + "/roles", roleRouter);
 }

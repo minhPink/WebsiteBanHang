@@ -4,12 +4,13 @@ include ../../mixins/select-tree.pug
 
 block main 
 
+    +alert-success()
     +alert-error()
 
-    h1(class="mb-4") Thêm mới sản phẩm 
+    h1(class="mb-4") Chỉnh sửa danh mục sản phẩm
 
     form(
-        action=`${prefixAdmin}/products-category/create`
+        action=`${prefixAdmin}/products-category/edit/${data.id}?_method=PATCH`
         id="form-create-product"
         method="POST"
         enctype="multipart/form-data"
@@ -22,6 +23,7 @@ block main
                 name="title"
                 class="form-control"
                 required
+                value=data.title
             ) 
         div(class="form-group" style="width: 95%")
             label(for="paren_id") Tiêu đề cha
@@ -30,8 +32,8 @@ block main
                 id="paren_id"
                 class="form-control"
             )
-                option(disabled selected) -- Chon hanh dong --
-                +select-tree(records)
+                option(value="") -- Chon hanh dong --
+                +select-tree(records, 1, data.paren_id)
         div(class="form-group" style="width: 95%")
             labe(for="desc") Mô tả 
             textarea(
@@ -39,7 +41,7 @@ block main
                 id="desc"
                 name="description"
                 rows="5"
-                ) 
+                ) #{data.description}
 
 
         div(class="form-group" style="width: 95%")
@@ -52,7 +54,7 @@ block main
                 accept="image/*"
                 choose-img
                 )
-            img(src="", alt="your-image" preview-img)
+            img(src=data.thumbnail, alt="your-image" preview-img)
             div(remove-preview class="hidden-remove") Bỏ chọn
         div(class="form-group" style="width: 95%")
             label(for="position") Vị trí
@@ -63,6 +65,7 @@ block main
                 name="position"
                 placeholder="Tự động tăng"
                 min="1"
+                value=data.position
             )
         div(class="form-group form-check form-check-inline")
             input(
@@ -71,7 +74,7 @@ block main
                 id="statusActive"
                 name="status"
                 value="active"
-                checked
+                checked=(data.status == "active" ? true : false)
             )
             label(for="statusActive" class="form-check-label") Hoạt động
         div(class="form-group form-check form-check-inline")
@@ -81,6 +84,7 @@ block main
                 id="statusInActive"
                 name="status"
                 value="inactive"
+                checked=(data.status == "inactive" ? true : false)
             ) 
             label(for="statusInActive" class="form-check-label") Dừng hoạt động
         div(class="form-group")
