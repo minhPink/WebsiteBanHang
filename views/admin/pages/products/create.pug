@@ -32,6 +32,24 @@ block main
             )
                 option(disabled selected) -- Chon hanh dong --
                 +select-tree(records)
+        div(class="form-group form-check form-check-inline")
+            input(
+                type="radio"
+                class="form-check-input"
+                id="featured1"
+                name="featured"
+                value="1"
+            )
+            label(for="featured1" class="form-check-label") Nổi bật
+        div(class="form-group form-check form-check-inline")
+            input(
+                type="radio"
+                class="form-check-input"
+                id="featured0"
+                name="featured"
+                value="0"
+            ) 
+            label(for="featured0" class="form-check-label") Không
         div(class="form-group" style="width: 95%")
             labe(for="desc") Mô tả 
             textarea(
@@ -113,6 +131,7 @@ block main
                 value="inactive"
             ) 
             label(for="statusInActive" class="form-check-label") Dừng hoạt động
+        
         div(class="form-group")
             button(
                 type="submit"

@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const flash = require('express-flash');
+const moment = require('moment');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const bodyParser = require('body-parser');
@@ -26,6 +27,7 @@ app.use(express.static(`${__dirname}/public`));
 
 // App Locals Variable
 app.locals.prefixAdmin = systemConfig.prefixAdmin;
+app.locals.moment = moment;
 
 // Flash
 app.use(cookieParser('HHSDHSDHHSH'));
