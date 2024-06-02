@@ -15,7 +15,7 @@ module.exports.requireAuth = async (req, res, next) => {
             }).select("title permissions")
             // Biến toàn cục giống trong file index.jss dùng app.locals để tất cả các file pug đều dùng được biến này
             res.locals.user = user;
-            res.locals.role = role; 
+            res.locals.role = role;
         }
     };
     next();

@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --theme-color: #0037ff;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 /* Header */
 .header {
     border-bottom: 1px solid #ddd;
@@ -236,3 +248,171 @@
     display: none !important;
 }
 /* End Notification */
+
+/* Login */
+.page-auth {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+.page-auth::after {
+    content: '';
+    position:fixed;
+    inset: 0;
+    background-color: var(--theme-color);
+    width: 60%;
+    height: 100vh;
+    clip-path: polygon(0 100%, 0 0, 100% 0, 70% 100%);
+    z-index: -1
+}
+
+.auth-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 10px 50px -30px black;
+    width: 1200px;
+    border-radius: 30px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto auto;   
+}
+
+.auth-card a {
+    text-decoration: none;
+    color: var(--theme-color);
+
+}
+
+.auth-card .column {
+    padding: 4rem;
+
+}
+
+.auth-card .column:last-child {
+    background-image: url(../images/anhnen2.jpg);
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.auth-card .column:last-child::after {
+    content: "";
+    position: absolute;
+    inset: 0
+}
+
+.auth-card .column:last-child *{
+    z-index: 1;
+}
+
+.auth-card .column:last-child a {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: 2px solid var(--theme-color);
+    color: black;
+    border-radius: 58px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.auth-card .column:last-child a:hover {
+    background-color: var(--theme-color);
+    color: white;
+}
+
+.auth-card form {
+    margin-top: 3rem;
+}
+
+.auth-card form>* {
+    margin-top: 1rem;
+}
+
+.auth-card form button {
+    background-color: var(--theme-color);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+
+.auth-card form button:active {
+    scale: .95;
+}
+
+.auth-card h1 {
+    margin-bottom: 15px;
+}
+
+.auth-card .form-element {
+    width: 100%;
+    border: none;
+    background-color: #f1f1f1;
+    padding: 20px 30px;
+    font-size: 18px;
+    border-radius: 50px;
+    transition: box-shadow 0.2s;
+}
+
+.auth-card .form-element:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--theme-color);
+}
+
+.flex-auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1rem
+}
+
+.social-buttons a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 22px;
+    color: white;
+    transition: scale;
+}
+
+.social-buttons a.facebook {
+    background-color: #3b5998;
+}
+
+.social-buttons a.twitter {
+    background-color: #55acee;
+}
+
+.social-buttons a.github {
+    background-color: #111;
+}
+
+.social-buttons a:hover {
+    scale: .95;
+}
+
+/* End Login */
+
+

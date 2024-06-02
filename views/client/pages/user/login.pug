@@ -1,38 +1,81 @@
-extends ../../layouts/default.pug 
+extends ../../layouts/auth.pug
 include ../../mixins/alert.pug
 
 block main 
     +alert-error()
 
-    .container.my-5 
-        .row.justify-content-center 
-            .col-8 
-                h1(class="text-center") Đăng nhập tài khoản 
+    //- .container.my-5 
+    //-     .row.justify-content-center 
+    //-         .col-8 
+    //-             h1(class="text-center") Đăng nhập tài khoản 
+    //-             form(
+    //-                 action=`/user/login`
+    //-                 method="POST"
+    //-                 ) 
+    //-                 div(class="form-group")
+    //-                     label(for="email") Email 
+    //-                     input(
+    //-                         type="text"
+    //-                         class="form-control"
+    //-                         id="email"
+    //-                         name="email"
+    //-                         required 
+    //-                         )
+    //-                 div(class="form-group")
+    //-                     label(for="password") Mật khẩu 
+    //-                     input(
+    //-                         type="password"
+    //-                         class="form-control"
+    //-                         id="password"
+    //-                         name="password"
+    //-                         required
+    //-                     )
+    //-                 div(class="form-group")
+    //-                     button(
+    //-                         type="submit"
+    //-                         class="btn btn-primary btn-block"
+    //-                     ) Đăng nhập
+    //-             a(href="/user/password/forgot") Quên mật khẩu   
+                
+    .page-auth          
+        .auth-card
+            .column
+                h1 Đăng nhập
+                p Sau khi đăng nhập bạn sẽ có những trải nghiệm tốt nhất !
                 form(
                     action=`/user/login`
                     method="POST"
-                    ) 
-                    div(class="form-group")
-                        label(for="email") Email 
+                )
+                    .form-item
                         input(
-                            type="text"
-                            class="form-control"
+                            type='text'
+                            class="form-element"
+                            placeholder='Email'
                             id="email"
                             name="email"
                             required 
                             )
-                    div(class="form-group")
-                        label(for="password") Mật khẩu 
+                    .form-item
                         input(
-                            type="password"
-                            class="form-control"
+                            type='password' 
+                            class="form-element"
+                            placeholder='Password'
                             id="password"
                             name="password"
                             required
-                        )
-                    div(class="form-group")
-                        button(
-                            type="submit"
-                            class="btn btn-primary btn-block"
-                        ) Đăng nhập
-                a(href="/user/password/forgot") Quên mật khẩu    
+                            )
+                    .flex-auth
+                        button(type='submit') Đăng nhập
+                        a(href='/user/password/forgot') Quên mật khẩu
+                    p(style='margin-top:3rem;margin-bottom:1.5rem;') Đăng nhập bằng phương thức khác
+                    .social-buttons
+                        a.facebook(href='')
+                            i.fa-brands.fa-facebook
+                        a.twitter(href='')
+                            i.fa-brands.fa-twitter
+                        a.github(href='')
+                            i.fa-brands.fa-github
+            .column
+                h2 Chào mừng bạn !
+                p Nếu bạn chưa có tài khoản , vui lòng đăng ký !
+                a(href='/user/register') Đăng ký

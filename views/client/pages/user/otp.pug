@@ -1,39 +1,76 @@
-extends ../../layouts/default.pug 
+extends ../../layouts/auth.pug 
 include ../../mixins/alert.pug
 
 block main 
     +alert-error()
 
-    .container.my-5 
-        .row.justify-content-center 
-            .col-8 
-                h1(class="text-center") Nhập mã OTP
+    //- .container.my-5 
+    //-     .row.justify-content-center 
+    //-         .col-8 
+    //-             h1(class="text-center") Nhập mã OTP
+    //-             form(
+    //-                 action=`/user/password/otp`
+    //-                 method="POST"
+    //-                 ) 
+    //-                 div(class="form-group")
+    //-                     label(for="email") Email 
+    //-                     input(
+    //-                         type="text"
+    //-                         class="form-control"
+    //-                         id="email"
+    //-                         name="email"
+    //-                         required 
+    //-                         value=email
+    //-                         readonly
+    //-                         )
+    //-                 div(class="form-group")
+    //-                     label(for="otp") Mã OTP 
+    //-                     input(
+    //-                         type="password"
+    //-                         class="form-control"
+    //-                         id="otp"
+    //-                         name="otp"
+    //-                         required
+    //-                     )
+    //-                 div(class="form-group")
+    //-                     button(
+    //-                         type="submit"
+    //-                         class="btn btn-primary btn-block"
+    //-                     ) Xác nhận
+
+
+    .page-auth           
+        .auth-card
+            .column
+                h1 Nhập mã OTP 
+                p Bạn hãy vào Email và kiểm tra mã OTP đã gửi đến bạn !
                 form(
                     action=`/user/password/otp`
                     method="POST"
-                    ) 
-                    div(class="form-group")
-                        label(for="email") Email 
+                )   
+                    .form-item
                         input(
-                            type="text"
-                            class="form-control"
+                            type='text'
+                            class="form-element"
+                            placeholder='Email'
                             id="email"
                             name="email"
                             required 
                             value=email
                             readonly
                             )
-                    div(class="form-group")
-                        label(for="otp") Mã OTP 
+                    .form-item
                         input(
-                            type="password"
-                            class="form-control"
+                            type='text'
+                            class="form-element"
+                            placeholder='Mã OTP'
                             id="otp"
                             name="otp"
                             required
-                        )
-                    div(class="form-group")
-                        button(
-                            type="submit"
-                            class="btn btn-primary btn-block"
-                        ) Xác nhận
+                            )
+                    .flex-auth
+                        button(type='submit') Xác nhận
+            .column
+                h2 Nếu bạn đã làm mất Email !
+                p Bạn có thể đăng ký một tài khoản khác !
+                a(href='/user/register') Đăng ký
