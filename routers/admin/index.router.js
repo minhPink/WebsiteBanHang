@@ -35,7 +35,8 @@ module.exports = (app) => {
 
     app.use(
         PATH_ADMIN + "/products", 
-        authMiddleware.requireAuth,productsRoutes
+        authMiddleware.requireAuth,
+        productsRoutes
     );
 
     app.use(

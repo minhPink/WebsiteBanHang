@@ -55,7 +55,7 @@ mixin table-tree(records, level = 1)
                         class="btn btn-danger btn-sm"
                         type='button'
                     ) Sửa
-                if(role.permissions.includes("product-category_delete"))
+                if(role.permissions.includes("product-category_deleted"))
                     button(
                             class="btn btn-warning btn-sm ml-1"
                             data-id=item.id

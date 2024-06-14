@@ -74,7 +74,7 @@ socket.on("SERVER_RETURN_MESSAGE", (data) => {
     `;   
     bodyChat.insertBefore(li, boxTyping);
     bodyChat.scrollTop = bodyChat.scrollHeight;
-    // PREVIEW IMAGES FULL SCREEN
+    // ZOOM IMAGES FULL SCREEN
     const gallery = new Viewer(li);
 })
 // END SEVER RETURN MESSAGE
@@ -168,10 +168,10 @@ socket.on("SERVER_RETURN_TYPING", (data) => {
 })
 // END SEVER RETURN TYPING
 
-// PREVIEW IMAGES FULL SCREEN
+// ZOOM IMAGES FULL SCREEN
 const bodyChatPreview = document.querySelector(".chatbox");
 if(bodyChatPreview) {
     const gallery = new Viewer(bodyChatPreview);
 }
-// END PREVIEW IMAGES FULL SCREEN
+// END ZOOM IMAGES FULL SCREEN
 

@@ -3,46 +3,13 @@ include ../../mixins/box-head.pug
 
 block main 
     .container.my-3 
+
+        include ../../partials/list-button-user.pug
         .row 
             .col-12 
                 +box-head("Chat")
 
 
-        
-        //- .row 
-            //- .chat 
-            //-     .inner-body 
-            //-         .inner-incoming 
-            //-             .inner-name Em yeu
-            //-             .inner-content 
-            //-                 | A o sang nha em , nha e ko co ai 
-            //-             .inner-outgoing 
-            //-                 .inner-content 
-            //-                     | The a ? OK e 
-            //-             .inner-incoming 
-            //-                 .inner-name Em yeu 
-            //-                 .inner-content 
-            //-                     | Nhanh nha 
-            //-             .inner-outgoing 
-            //-                 .inner-content 
-            //-                     | Ck den roi ma thay ai o nha dau ? Khoa cua ma 
-            //-             .inner-incoming 
-            //-                 .inner-name Em Yeu 
-            //-                 .inner-content 
-            //-                     | Thi em ba nha ko co ai ma anh 
-            //-         .inner-foot     
-            //-             form(
-            //-                 class="inner-form"
-            //-                 action=""
-            //-             )
-            //-                 input(
-            //-                     type="text"
-            //-                     placeholder="Nhập nội dung"
-            //-                     name="content"
-            //-                 )
-            //-                 button 
-            //-    
-                             i.fa-solid.fa-paper-plane
         
         .chatbot
             header 
@@ -99,4 +66,5 @@ block main
     div(class="tooltip" role="tooltip")
         emoji-picker
     
-
+    block script 
+        script(type="module" src="/js/chat.js") 
