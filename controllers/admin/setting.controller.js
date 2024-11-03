@@ -9,6 +9,7 @@ module.exports.general = async (req, res) => {
     })
 }
 
+// [PATCH] /admin/setting/general
 module.exports.patchGeneral = async (req, res) => {
     const settingGeneral = await SettingGeneral.findOne({});
     if(settingGeneral) {
