@@ -4,45 +4,229 @@
     --theme-color: #0037ff;
 }
 
-
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    background-color: #f1f1f1;
+}
 /* Header */
 .header {
-    border-bottom: 1px solid #ddd;
+    background-color: #f8f9fa; /* Màu nền nhẹ cho header f8f9fa*/
     padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 500;
 }
 
-.header .inner-logo img {
-    max-height: 50px;
+.inner-logo img {
+    height: 70px;
+    width: 90px;
+    object-fit: cover;
+}
+/* Tùy chỉnh form tìm kiếm */
+.search-form {
     max-width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center; /* Căn giữa chiều cao giữa input và button */
 }
 
-.header .inner-menu > ul {
-    list-style : none;
+/* Ô tìm kiếm */
+.search-form .form-control {
+    border-radius: 20px 0 0 20px;
+    border: 1px solid #ced4da;
+    padding: 10px 15px;
+    font-size: 12px;
+    width: 250px;
+    margin-left: 35px;
+    height: 100%; /* Đảm bảo input có chiều cao toàn bộ dòng */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Đảm bảo input không bị kéo dài quá mức */
+}
+
+/* Nút tìm kiếm */
+.search-form .btn-primary {
+    background-color: #009578;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    color: white;
+    padding: 10px 15px; /* Điều chỉnh padding để đồng bộ với input */
+    font-size: 16px;
+    /* height: 100%; */
+    line-height: 1; /* Đảm bảo text căn giữa trong button */
+    transition: background-color 0.3s ease;
+}
+
+.search-form .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Đảm bảo không có sự khác biệt về kích thước khi focus vào input */
+.search-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Menu tùy chỉnh */
+.inner-menu > ul {
+    list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Ngăn menu bị xuống dòng */
 }
 
-.header .inner-menu > ul > li {
-    margin-left: 20px;
+
+.inner-menu ul li {
+    margin: 0 10px; /* Điều chỉnh khoảng cách giữa các mục */
+    white-space: nowrap; /* Ngăn chữ xuống dòng */
 }
+
+/* Liên kết mặc định */
+.inner-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 10px; /* Giảm cỡ chữ */
+}
+
+/* Hiệu ứng hover cho tất cả các mục */
+.inner-menu ul li a:hover {
+    color: #007bff;
+}
+
+/* Icon giỏ hàng */
+.inner-menu .fa-cart-shopping {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Mục "Dao Xuan Minh" với border */
+.inner-menu ul li.user-profile a {
+    border: 1px solid #007bff;
+    color: #007bff;
+    font-size: 12px;
+}
+
+.inner-menu ul li.user-profile a:hover {
+    color: #fff;
+    background-color: #007bff;
+}
+
+/* Mục "Đăng xuất" với nền đỏ */
+.inner-menu ul li.logout a {
+    color: #fff;
+    font-size: 12px;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.inner-menu ul li.logout a:hover {
+    background-color: #c82333;
+}
+
+/* Mục "Đăng ký" với nền xanh */
+.inner-menu ul li.register a {
+    color: #fff;
+    font-size: 12px;
+    background-color: #009578;
+    border: 1px solid #009578;
+}
+
+.inner-menu ul li.register a:hover {
+    background-color: #007f61;
+}
+
+/* Mục "Đăng nhập" với nền đen */
+.inner-menu ul li.login a {
+    color: #fff;
+    font-size: 12px;
+    background-color: #343a40;
+    border: 1px solid #343a40;
+}
+
+.inner-menu ul li.login a:hover {
+    background-color: #23272b;
+}
+
+
 /* End Header */
 
 /* Footer */
-.footer {
-    background: #333;
+footer {
+    background-color: #000;
     color: #fff;
-    text-align: center;
-    padding: 10px;
+    padding: 100px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Cho phép các phần tử trong footer xuống dòng nếu cần */
 }
+
+footer h3 {
+    font-size: 48px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-basis: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin-bottom: 20px;
+}
+
+footer .right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 26px;
+}
+
+footer .right .links {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các liên kết xuống dòng khi không đủ không gian */
+    justify-content: flex-end; /* Căn phải các liên kết */
+    gap: 20px; /* Khoảng cách giữa các liên kết */
+}
+
+footer .right .links a {
+    color: #989898;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+footer .right .links a:hover {
+    color: #fff;
+}
+
+footer .right .social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .right .social i {
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+footer .right .social i:hover {
+    color: #304ffe;
+}
+
+footer .right p {
+    font-size: 13px;
+    color: #777;
+}
+
 /* End Footer */
 
 /* Box-head */
@@ -120,44 +304,84 @@
 /* End Product-item */
 
 /* Sub-menu */
-.sub-menu{
+/* Sub-menu */
+.sub-menu {
     position: relative;
     z-index: 999;
 }
 
-.sub-menu ul{
+.sub-menu > a {
+    display: block;
+    padding: 10px 15px;
+    background-color: #f8f9fa; /* Nền của item menu cấp 1 */
+    border-radius: 5px;
+    color: #333;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Sub-menu chính */
+.sub-menu ul {
     position: absolute;
     right: 0;
     top: 100%;
     list-style: none;
     padding: 0;
     margin: 0;
-    background: #eae9e9;
+    background: #fff; /* Nền trắng cho sub-menu */
     min-width: 180px;
     display: none;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Thêm bóng cho menu */
+    border-radius: 5px; /* Bo tròn góc */
+    transition: opacity 0.3s ease; /* Thêm hiệu ứng mờ dần */
+    opacity: 0; /* Ban đầu ẩn */
+    border: 1px solid #ddd; /* Đặt border nhẹ cho menu */
 }
 
-.sub-menu ul li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
+/* Hover trên menu chính để hiện menu con */
 .sub-menu:hover > ul {
     display: block;
+    opacity: 1; /* Hiển thị sub-menu */
 }
 
+/* Li trong sub-menu */
 .sub-menu ul li {
-    position: relative;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    font-size: 14px; /* Giảm cỡ chữ */
+    text-align: center; /* Căn giữa chữ trong menu */
 }
 
+.sub-menu ul li:last-child {
+    border-bottom: none; /* Loại bỏ border-bottom cho phần tử cuối */
+}
+
+/* Sub-menu cấp 2 */
 .sub-menu ul li ul {
     right: 100%;
-    top : 0;
+    top: 0;
+    display: none;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Thêm bóng cho sub-menu cấp 2 */
+    opacity: 0;
+    background-color: #fff; /* Nền trắng cho cấp 2 */
+    border: 1px solid #ddd; /* Đặt border nhẹ cho sub-menu cấp 2 */
 }
 
 .sub-menu ul li:hover > ul {
     display: block;
+    opacity: 1;
 }
+
+/* Li trong sub-menu cấp 2 */
+.sub-menu ul li ul li {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #fff; /* Màu nền trắng cho các mục cấp 2 */
+    text-align: center; /* Căn giữa chữ trong sub-menu cấp 2 */
+}
+
 
 /* End Sub-menu */
 
@@ -195,59 +419,91 @@
 /* End product-detail */
 
 /* Notification */
-.message.info #alert{
+.message.info #alert {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     border: 2px solid #ddd;
     width: 330px;
-    right: 100px;
-    top: 0;
-    position: absolute;
-    padding: 10px 0;
-    animation: nonealert;
-}
-
-@keyframes nonealert {
-    
-}
-
-.message.info .x {
-    margin: 0 15px;
-    padding-bottom: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-    background:yellowgreen;
-    align-items: center;
-    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
     color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    font-size: 16px;
+    font-weight: 500;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Success notification - green background */
+.message.info #alert.success {
+    background-color: #28a745; /* Xanh lá */
+    border-color: #28a745;
+}
+
+.message.info #alert.success .x {
+    background-color: #155724;
+    color: white;
+}
+
+.message.info #alert.success .x:hover {
+    background-color: #1e7e34;
+}
+
+/* Danger notification - red background */
+.message.info #alert.danger {
+    background-color: #dc3545; /* Đỏ */
+    border-color: #dc3545;
+}
+
+.message.info #alert.danger .x {
+    background-color: #721c24;
+    color: white;
+}
+
+.message.info #alert.danger .x:hover {
+    background-color: #c82333;
+}
+
+/* Close button styles */
+.message.info .x {
+    padding: 5px 10px;
+    border-radius: 50%;
     cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
 }
 
-.message.info [show-alert] {
-    font-size: 17px;
-    font-weight: 700;
-    margin-left: 25px;
+.message.info .hidden-alert {
+    display: none !important;
 }
 
-.message.info #alert::after{
+/* Hiệu ứng thanh tiến độ */
+.message.info #alert::after {
     content: '';
     width: 100%;
     position: absolute;
     height: 3px;
     top: 95%;
-    animation: anima 5s linear forwards;
     background: orange;
+    animation: anima 5s linear forwards;
 }
 
 @keyframes anima {
-    100%{
+    100% {
         width: 0;
     }
 }
 
-.message.info .old-class.hidden-alert{
-    display: none !important;
-}
 /* End Notification */
+
+
 
 /* Login */
 .page-auth {

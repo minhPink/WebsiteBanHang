@@ -1,11 +1,12 @@
 import * as Popper from 'https://cdn.jsdelivr.net/npm/@popperjs/core@^2/dist/esm/index.js';
 
-//FILE UPLOAD WITH PREVIEW
-const upload = new FileUploadWithPreview.FileUploadWithPreview('upload-img', {
-    multiple: true,
-    maxFileCount: 6
-});
-//END FILE UPLOAD WITH PREVIEW
+
+// //FILE UPLOAD WITH PREVIEW
+// const upload = new FileUploadWithPreview.FileUploadWithPreview('upload-img', {
+//     multiple: true,
+//     maxFileCount: 6
+// });
+// //END FILE UPLOAD WITH PREVIEW
 
 
 // CLIENT SEND MESSAGE
@@ -14,15 +15,15 @@ if(formSendData) {
     formSendData.addEventListener("submit", (e) => {
         e.preventDefault();
         const content = e.target.elements.content.value;
-        const images = upload.cachedFileArray || [];
+        // const images = upload.cachedFileArray || [];
 
         if(content || images.length > 0) {
             socket.emit("CLIENT_SEND_MESSAGE", {
                 content: content,
-                images: images
+                // images: images
             });
-            e.target.elements.content.value = "";
-            upload.resetPreviewPanel();
+            // e.target.elements.content.value = "";
+            // upload.resetPreviewPanel();
 
             socket.emit("SERVER_SEND_TYPING","hidden");
         }
@@ -114,6 +115,7 @@ const input = document.querySelector(".chat-input input[name='content']");
 const emo = document.querySelector("emoji-picker");
 if(emo) {
     emo.addEventListener("emoji-click", (e) => {
+        console.log("oke");
         const icon = e.detail.unicode;
         input.value = input.value + icon;
         const end = input.value.length;

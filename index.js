@@ -37,7 +37,6 @@ const io = new Server(server);
 global._io = io;
 
 
-
 // Flash
 app.use(cookieParser('HHSDHSDHHSH'));
 app.use(session({ cookie: { maxAge: 60000 }}));

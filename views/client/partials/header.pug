@@ -3,12 +3,12 @@ include ../mixins/sub-menu.pug
 header.header 
     .container 
         .row.align-items-center 
-            .col-3 
+            .col-1
                 .inner-logo 
                     a(href="/")
                         img(src=settingGeneral.logo, alt="logo")
             
-            .col-5 
+            .col-4.search-form
                 form(
                     action="/search"
                     method="GET"
@@ -16,7 +16,7 @@ header.header
                     div(class="form-group d-flex mb-0")
                         input(
                             type="text"
-                            placeholder=".....Search"
+                            placeholder="Nhập nội dung tìm kiếm..."
                             class="form-control"
                             name="keyword"
                             value=keyword
@@ -24,30 +24,32 @@ header.header
                         button(
                             type="submit"
                             class="btn btn-primary"
-                        ) Tìm
+                        ) <i class="fa-solid fa-magnifying-glass"></i>
 
-            .col-4
+            .col-7
                 .inner-menu 
                     ul 
-                        li 
-                            a(href="/") Trang chu 
                         li(class="sub-menu") 
                             -const pathProduct = "/products"
-                            a(href=pathProduct) San pham
+                            a(href=pathProduct) SẢN PHẨM
                             +sub-menu(layoutsProductsCategory, pathProduct)
-                        li 
-                            a(href="/cart") Gio hang (#{miniCart && miniCart.totalQuantity ? miniCart.totalQuantity : "0"})
+                        
                         if(user)
                             li
-                                a(href="/users/friends") Ban be
+                                a(href="/users/friends") BẠN BÈ
                             li 
-                                a(href="/rooms-chat") Phong chat
-                            li 
-                                a(href="/user/info")  #{user.fullName}
-                            li 
-                                a(href="/user/logout")  Dang xuat
+                                a(href="/rooms-chat") PHÒNG CHAT
+                            li.user-profile 
+                                a(href="/user/info")  <i class="fa-regular fa-user"></i>#{user.fullName}
+                            li.logout
+                                a(href="/user/logout")  ĐĂNG XUẤT
                         else
-                            li 
-                                a(href="/user/register") Dang ky 
-                            li 
-                                a(href="/user/login") Dang nhap 
+                            li.register
+                                a(href="/user/register") ĐĂNG KÝ
+                            li.login
+                                a(href="/user/login") ĐĂNG NHẬP
+                        li 
+                            li
+                                a(href="/cart")
+                                    i(class="fa-solid fa-cart-shopping")
+                                    | (#{miniCart && miniCart.totalQuantity ? miniCart.totalQuantity : "0"})

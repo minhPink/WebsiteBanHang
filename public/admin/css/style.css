@@ -50,59 +50,91 @@
 /* End Sider */
 
 /* Notification */
-.message.info #alert{
+.message.info #alert {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     border: 2px solid #ddd;
     width: 330px;
-    right: 100px;
-    top: 0;
-    position: absolute;
-    padding: 10px 0;
-    animation: nonealert;
-}
-
-@keyframes nonealert {
-    
-}
-
-.message.info .x {
-    margin: 0 15px;
-    padding-bottom: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-    background:yellowgreen;
-    align-items: center;
-    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
     color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    font-size: 16px;
+    font-weight: 500;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Success notification - green background */
+.message.info #alert.success {
+    background-color: #28a745; /* Xanh lá */
+    border-color: #28a745;
+}
+
+.message.info #alert.success .x {
+    background-color: #155724;
+    color: white;
+}
+
+.message.info #alert.success .x:hover {
+    background-color: #1e7e34;
+}
+
+/* Danger notification - red background */
+.message.info #alert.danger {
+    background-color: #dc3545; /* Đỏ */
+    border-color: #dc3545;
+}
+
+.message.info #alert.danger .x {
+    background-color: #721c24;
+    color: white;
+}
+
+.message.info #alert.danger .x:hover {
+    background-color: #c82333;
+}
+
+/* Close button styles */
+.message.info .x {
+    padding: 5px 10px;
+    border-radius: 50%;
     cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
 }
 
-.message.info [show-alert] {
-    font-size: 17px;
-    font-weight: 700;
-    margin-left: 25px;
+.message.info .hidden-alert {
+    display: none !important;
 }
 
-.message.info #alert::after{
+/* Hiệu ứng thanh tiến độ */
+.message.info #alert::after {
     content: '';
     width: 100%;
     position: absolute;
     height: 3px;
     top: 95%;
-    animation: anima 5s linear forwards;
     background: orange;
+    animation: anima 5s linear forwards;
 }
 
 @keyframes anima {
-    100%{
+    100% {
         width: 0;
     }
 }
 
-.message.info .old-class.hidden-alert{
-    display: none !important;
-}
 /* End Notification */
+
+
 
 /* Preview IMG */
 [preview-img] {

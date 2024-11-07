@@ -28,7 +28,7 @@ module.exports.index = async (req, res) => {
     cart.totalPrice = cart.products.reduce((sum, item) => sum + item.totalPrice, 0);
 
     res.render("client/pages/cart/index", {
-        pageTitle: "Gio hang",
+        pageTitle: "Giỏ hàng",
         cart: cart
     });
 
@@ -72,7 +72,7 @@ module.exports.addPost = async (req, res) => {
                 $push: { products : objectCart}
             }
         )
-        req.flash("success", "Thêm sản phẩm vào giot hàng thành công !");
+        req.flash("success", "Thêm sản phẩm vào giỏ hàng thành công !");
     };
     
     
@@ -85,8 +85,6 @@ module.exports.delete = async (req, res) => {
     const productId = req.params.productId;
     const cartId = req.cookies.cartId;
 
-    console.log(productId);
-
     await Cart.updateOne(
         {
             _id:cartId
@@ -96,7 +94,7 @@ module.exports.delete = async (req, res) => {
         }
     );
 
-    req.flash("success", "Da xoa san pham khoi gio hang thanh cong !");
+    req.flash("success", "Đã xóa sản phẩm khỏi giỏ hàng thành công !");
 
     res.redirect("back");
 };
@@ -107,7 +105,6 @@ module.exports.update = async (req, res) => {
     const productId = req.params.productId; 
     const quantity  = req.params.quantity;
 
-    console.log(quantity);
 
     await Cart.updateOne(
         {
@@ -118,7 +115,7 @@ module.exports.update = async (req, res) => {
             'products.$.quantity': quantity
         }
     );
-    req.flash("success", "Da cap nhat so luong thanh cong !");
+    req.flash("success", "Đã cập nhật số lượng thành công !");
 
     res.redirect("back");
 }
