@@ -1,14 +1,14 @@
 /* Header */
 .header {
     background: #202020;
-    padding: 10px 0;
+    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 999;
 }
 
 .header .inner-logo a {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     color: #fff;
 }
@@ -20,9 +20,9 @@
     width: 175px;
     background: #323232;
     color: #fff;
-    height: calc(100vh - 56px);
+    height: calc(100vh - 76px);
     position: fixed;
-    top: 56px;
+    top: 76px;
     left: 0;
 }
 
@@ -30,7 +30,7 @@
     margin: 15px;
     position: relative;
     left: 175px;
-    width: calc(100% - 100px);
+    width: calc(100% - 180px);
 }
 /* End Body */
 
@@ -44,7 +44,7 @@
 .sider .inner-menu ul li a {
     color: #fff;
     display: block;
-    padding: 6px 10px;
+    padding: 15px 10px;
     border-bottom: 1px solid #51515151;
 }
 /* End Sider */

@@ -254,8 +254,8 @@ module.exports.editPatchItem = async (req, res) => {
             ...req.body,
             $push: {updatedBy: updatedBy}
         });
+        req.flash('success', 'Bạn đã thay đổi thành công !');
         res.redirect("back");
-        req.flash('success', 'Bạn đã thay đổi thành công');
     } catch (error) {
         req.flash('error', 'Cập nhật không thành công !');
         res.redirect("back");

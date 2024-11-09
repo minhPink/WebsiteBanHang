@@ -3,15 +3,17 @@ include ../../mixins/box-head.pug
 include ../../mixins/product-layout.pug
 
 block main 
-    .container.my-3 
+    include ../../partials/swiperintroduce.pug
+    .container.my-3.hot
         .row 
             .col-12 
-                +box-head("San pham noi bat")
+                +box-head("⚡️ Sản phẩm bán chạy 🔥")
         +product-grid(productsFeatured)
 
 
     .container.my-3 
         .row 
             .col-12 
-                +box-head("San pham moi")
+                +box-head("Sản phẩm mới")
         +product-grid(productsNew)
+        button#see-more-btn Xem thêm sản phẩm
