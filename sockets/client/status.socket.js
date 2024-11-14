@@ -1,4 +1,4 @@
-const Uers = require("../../models/users.model");
+const Users = require("../../models/users.model");
 module.exports.userOnline = async (data) => {
     const userId = data;
 

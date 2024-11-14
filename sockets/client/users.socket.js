@@ -151,7 +151,7 @@ module.exports = async (res) => {
             let roomChat;
             if(exitsUserA && exitsUserB) {
                 roomChat = new RoomChat({
-                    type: "friend",
+                    typeRoom: "friend",
                     users: [
                         {
                             user_id: userId,
@@ -159,7 +159,7 @@ module.exports = async (res) => {
                         },
                         {
                             user_id: myUserId,
-                            roomChat: "superAdmin"
+                            role: "superAdmin"
                         }
                     ]
                 })

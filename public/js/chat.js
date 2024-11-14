@@ -1,17 +1,17 @@
 import * as Popper from 'https://cdn.jsdelivr.net/npm/@popperjs/core@^2/dist/esm/index.js';
-
+// import { FileUploadWithPreview } from 'https://unpkg.com/file-upload-with-preview/dist/index.js';
 
 // //FILE UPLOAD WITH PREVIEW
-// const upload = new FileUploadWithPreview.FileUploadWithPreview('upload-img', {
+// const upload = new FileUploadWithPreview('upload-img', {
 //     multiple: true,
 //     maxFileCount: 6
 // });
-// //END FILE UPLOAD WITH PREVIEW
+// // //END FILE UPLOAD WITH PREVIEW
 
 
 // CLIENT SEND MESSAGE
 const formSendData = document.querySelector(".chatbot .inner-form");
-if(formSendData) {
+if (formSendData) {
     formSendData.addEventListener("submit", (e) => {
         e.preventDefault();
         const content = e.target.elements.content.value;
@@ -22,7 +22,7 @@ if(formSendData) {
                 content: content,
                 // images: images
             });
-            // e.target.elements.content.value = "";
+            e.target.elements.content.value = "";
             // upload.resetPreviewPanel();
 
             socket.emit("SERVER_SEND_TYPING","hidden");
@@ -152,7 +152,7 @@ socket.on("SERVER_RETURN_TYPING", (data) => {
                 <div class="inner-dots">
                     <span> </span>
                     <span> </span>
-                    <span></span>
+                    <span> </span>
                 </div>
             `
             bodyTyping.appendChild(div);
@@ -172,7 +172,7 @@ socket.on("SERVER_RETURN_TYPING", (data) => {
 
 // ZOOM IMAGES FULL SCREEN
 const bodyChatPreview = document.querySelector(".chatbox");
-if(bodyChatPreview) {
+if (bodyChatPreview) {
     const gallery = new Viewer(bodyChatPreview);
 }
 // END ZOOM IMAGES FULL SCREEN

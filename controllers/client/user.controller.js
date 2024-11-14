@@ -34,10 +34,10 @@ module.exports.postRegister = async (req, res) => {
     await user.save();
     res.cookie("tokenUser", user.tokenUser);
 
-    res.redirect("/");
+    res.redirect("/user/login");
 }
 
-//[GET] /user/register
+//[GET] /user/login
 module.exports.login = async (req, res) => {
     res.render("client/pages/user/login", {
         pageTitle: "Dang nhap"

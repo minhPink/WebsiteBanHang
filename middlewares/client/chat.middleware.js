@@ -6,7 +6,7 @@ module.exports.inAccess = async (req, res , next) => {
     try {
         const isAccessRoomChat = await RoomChat.find({
             _id: roomChatId,
-            "user.user_id": userId,
+            "users.user_id": userId,
             deleted: false
         });
 

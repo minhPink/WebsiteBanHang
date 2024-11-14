@@ -187,11 +187,9 @@ body {
 
 
 .inner-menu ul li {
-    margin: 0 10px;
+    margin: 0;
     white-space: nowrap; 
 }
-
-
 .inner-menu ul li a {
     text-decoration: none;
     color: #333;
@@ -201,6 +199,8 @@ body {
     border-radius: 5px;
     display: inline-block;
     font-size: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .inner-menu ul li a:hover {
@@ -326,6 +326,12 @@ footer .right p {
 /* End Footer */
 
 /* Box-head */
+.container.hot .box-head h2.inner-title {
+    color: #fff !important;
+    margin-bottom: 20px;
+}
+
+
 .box-head {
     margin-bottom: 15px;
     margin-top: 5px;
@@ -544,7 +550,6 @@ footer .right p {
   
 /* End Product-item */
 
-/* Sub-menu */
 /* Sub-menu */
 .sub-menu {
     position: relative;
@@ -1433,3 +1438,28 @@ emoji-picker {
     font-weight: normal;
   }
 /* END USER-INFO */
+
+/* ROOMS-CHAT */
+.box-room {
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.box-room .inner-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f2f2f2;
+    margin-right: 30px;
+}
+
+.box-room .inner-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* END ROOMS-CHAT */
