@@ -9,7 +9,7 @@ block main
     .container.my-3 
         .row 
             .col-12 
-                +box-head("Dat hang")
+                +box-head("Đặt hàng")
 
 
         .row 
@@ -18,11 +18,11 @@ block main
                     thead 
                         tr 
                             th STT
-                            th Anh 
-                            th Ten
-                            th Gia
-                            th So luong
-                            th Tong tien 
+                            th Ảnh
+                            th Tên
+                            th Giá
+                            th Số lượng
+                            th Tổng tiền
                     tbody
                         if(cart.products.length > 0) 
                             each item , index in cart.products
@@ -44,7 +44,7 @@ block main
                                 td(
                                     colspan="7"
                                     class="text-center"
-                                )   Gio hang trong
+                                )   Giỏ hàng trống
                 h3(class="text-right") Tổng đơn hàng : #{cart.totalPrice}
 
     if(cart.products.length > 0)         
@@ -56,7 +56,7 @@ block main
                         method="POST"
                     )  
                         div(class="form-group")
-                            label(for="fullName") Ho ten 
+                            label(for="fullName") Họ tên 
                             input(
                                 type="text"
                                 class="form-control"
@@ -65,7 +65,7 @@ block main
                                 required
                             ) 
                         div(class="form-group")
-                            label(for="phone") So dien thoai 
+                            label(for="phone") Số điện thoại
                             input(
                                 type="text"
                                 class="form-control"
@@ -74,7 +74,7 @@ block main
                                 required
                             )
                         div(class="form-group")
-                            label(for="address") Dia chi
+                            label(for="address") Địa chỉ
                             input(
                                 type="text"
                                 class="form-control"
@@ -86,5 +86,5 @@ block main
                             button(
                                 type="submit"
                                 class="btn btn-success btn-block"
-                            ) Dat hang
+                            ) Đặt hàng
     script(src="/js/cart.js")             

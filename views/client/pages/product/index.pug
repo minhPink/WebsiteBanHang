@@ -9,4 +9,5 @@ block main
                 +box-head(pageTitle)
         
         +product-grid(products)
-        button#see-more-btn Xem thêm sản phẩm
+        if(products.length > 4)
+            button#see-more-btn Xem thêm sản phẩm

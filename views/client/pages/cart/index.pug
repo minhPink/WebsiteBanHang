@@ -9,7 +9,7 @@ block main
     .container.my-3 
         .row 
             .col-12 
-                +box-head("Gio hang")
+                +box-head("Giỏ hàng")
 
 
         .row 
@@ -18,12 +18,12 @@ block main
                     thead 
                         tr 
                             th STT
-                            th Anh 
-                            th Ten
-                            th Gia
-                            th So luong
-                            th Tong tien 
-                            th Hang dong 
+                            th Ảnh 
+                            th Tên
+                            th Giá
+                            th Số lượng
+                            th Tổng tiền
+                            th Hành động
                     tbody
                         if(cart.products.length > 0) 
                             each item , index in cart.products
@@ -54,7 +54,7 @@ block main
                                             class="btn btn-danger"
                                         ) Xóa
 
-                h3(class="text-right") Tổng đơn hàng : #{cart.totalPrice}
+                h3(class="text-right") Tổng đơn hàng : #{cart.totalPrice}$
 
                 div(class="text-right mt-3")
                     a(href="/checkout" class="btn btn-success") Thanh toán     

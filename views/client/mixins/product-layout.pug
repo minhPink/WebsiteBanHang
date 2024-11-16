@@ -1,11 +1,6 @@
 include product-item.pug
 
-//- mixin product-grid(products)
-//-     .row
-//-         each item in products
-//-             +product-item(item)
 mixin product-grid(products)
     .row
         each item, index in products
-            //- Nếu index < 4, thì sản phẩm hiển thị với lớp "visible", các sản phẩm khác sẽ có lớp "hidden"
             +product-item(item, index < 4 ? 'visible' : 'hidden')

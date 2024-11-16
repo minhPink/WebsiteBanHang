@@ -16,7 +16,7 @@ module.exports.index = async (req, res) => {
     
 
     res.render("client/pages/product/index", {
-        pageTitle: "Trang danh sach san pham",
+        pageTitle: "Danh sách sản phẩm",
         products: newProducts
     });
 };
@@ -29,7 +29,7 @@ module.exports.detailProduct = async (req, res ) => {
         status: "active"
     }
 
-    const product = await Product.findOne( find);
+    const product = await Product.findOne(find);
 
 
     if(product.products_category_id) {
@@ -39,7 +39,7 @@ module.exports.detailProduct = async (req, res ) => {
             deleted: false
         });
 
-        product.category = category;
+        product.category = category.title;
     };
 
     product.newPrice = productHelper.priceNewProduct(product);

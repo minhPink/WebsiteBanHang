@@ -9,7 +9,7 @@ block main
     .container.my-3 
         .row 
             .col-12 
-                +box-head("Dat hang thanh cong")
+                +box-head("Đặt hàng thành công")
 
         .row 
             .col-12 
@@ -23,15 +23,15 @@ block main
                     table(class="table table-bordered")
                         tbody 
                             tr 
-                                td Ho ten 
+                                td Họ tên 
                                 td 
                                     b #{order.userInfo.fullName} 
                             tr 
-                                td So dien thoai 
+                                td Số điện thoại 
                                 td 
                                     b #{order.userInfo.phone}
                             tr 
-                                td Dia chi 
+                                td Địa chỉ 
                                 td 
                                     b #{order.userInfo.address}
             .row 
@@ -40,11 +40,11 @@ block main
                         thead 
                             tr 
                                 th STT
-                                th Anh 
-                                th Ten
-                                th Gia
-                                th So luong
-                                th Tong tien 
+                                th Ảnh
+                                th Tên
+                                th Giá
+                                th Số lượng
+                                th Tổng tiền
                         tbody
                             if(order.products.length > 0) 
                                 each item , index in order.products
@@ -66,5 +66,5 @@ block main
                                     td(
                                         colspan="7"
                                         class="text-center"
-                                    )   Gio hang trong
-                    h3(class="text-right") Tổng đơn hàng : #{order.totalPrice}
+                                    )   Giỏ hàng trống
+                    h3(class="text-right") Tổng đơn hàng : #{order.totalPrice}$

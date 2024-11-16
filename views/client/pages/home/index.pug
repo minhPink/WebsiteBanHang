@@ -16,4 +16,5 @@ block main
             .col-12 
                 +box-head("Sản phẩm mới")
         +product-grid(productsNew)
-        button#see-more-btn Xem thêm sản phẩm
+        if(productsNew.length > 4)
+            button#see-more-btn Xem thêm sản phẩm
