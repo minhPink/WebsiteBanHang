@@ -37,5 +37,16 @@ if(showItem) {
 }
   
 // END SHOW ITEM //
+// SWIPERWATCH
+var swiper = new Swiper(".mySwiper2", {
+  watchSlidesProgress: true,
+  slidesPerView: 2,
+});
+// END SWIPERWATCH
 
-
+// FORM SORT
+const formSort = document.querySelector("[sort]");
+if (formSort) {
+  console.log("ok")
+}
+// END FORM SORT

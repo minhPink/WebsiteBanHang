@@ -1,6 +1,6 @@
 // Permissions
 const tablePermissons = document.querySelector("[table-permissons]");
-if(tablePermissons) {
+if (tablePermissons) {
     const buttonSubmit = document.querySelector("[button-submit]");
     buttonSubmit.addEventListener("click", () => {
         let permissions = [];

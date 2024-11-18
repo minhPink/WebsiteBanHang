@@ -2,7 +2,7 @@
 const buttonChangStatus = document.querySelectorAll("[button-change-status]");
 const formChangeStatus = document.querySelector("[form-change-status]");
 
-if(buttonChangStatus.length > 0){
+if (buttonChangStatus.length > 0) {
     buttonChangStatus.forEach(button => {
         button.addEventListener("click", () => {
             const status = button.getAttribute("data-status");
@@ -21,10 +21,10 @@ if(buttonChangStatus.length > 0){
 const buttonDelete = document.querySelectorAll("[button-delete]");
 const formDelete = document.querySelector("[form-delete-item]");
 
-if(buttonDelete.length > 0){
+if (buttonDelete.length > 0) {
     buttonDelete.forEach(button => {
         button.addEventListener("click", () => {
-            const isConfirm = confirm("Ban co chac muon xoa san pham nay");
+            const isConfirm = confirm("Bạn có chắc muốn xóa sản phẩm này ?");
             if(isConfirm ){
                 const id = button.getAttribute("data-id");
                 const path = formDelete.getAttribute("path");

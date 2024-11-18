@@ -1,7 +1,7 @@
 // button-status
 const buttonStatus = document.querySelectorAll("[button-status]");
 
-if(buttonStatus.length > 0){
+if (buttonStatus.length > 0) {
     let url = new URL(window.location.href);
 
     buttonStatus.forEach(button => {
@@ -22,7 +22,7 @@ if(buttonStatus.length > 0){
 // end button-status
 // button-search
 const formSearch = document.querySelector("#form-search");
-if(formSearch){
+if (formSearch) {
     formSearch.addEventListener("submit", (e) => {
         let url = new URL(window.location.href);
         e.preventDefault();
@@ -55,7 +55,7 @@ buttonNavigation.forEach(button => {
 
 //check box multi
 const checkMulti = document.querySelector("[checkbox-multi]");
-if(checkMulti){
+if (checkMulti) {
     const checkAll = checkMulti.querySelector("input[name='checkall']");
     const checkId = checkMulti.querySelectorAll("input[name='id']");
     checkAll.addEventListener("click", () => {
@@ -83,7 +83,7 @@ if(checkMulti){
 
 // form change multi
 const formChangeMulti = document.querySelector("[form-charge-multi]");
-if(formChangeMulti){
+if (formChangeMulti) {
     formChangeMulti.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -122,7 +122,7 @@ if(formChangeMulti){
 // Show Alert
 const showAlert = document.getElementById("alert");
 const inAlert = document.querySelector("[show-alert]");
-if(inAlert){
+if (inAlert) {
     const exit = document.querySelector("[exit]");
     const time = parseInt(inAlert.getAttribute('time'));
     setTimeout(() => {
@@ -138,7 +138,7 @@ if(inAlert){
 
 // Preview img before uploads
 const chooseImg = document.querySelector("[choose-img]");
-if(chooseImg){
+if (chooseImg) {
     const previewImg = document.querySelector("[preview-img]");
     chooseImg.addEventListener("change", () => {
         const [file] = chooseImg.files;
@@ -167,7 +167,7 @@ if(chooseImg){
 
 // Form Sort
 const formSort = document.querySelector("[sort]");
-if(formSort){
+if (formSort) {
     let url = new URL(window.location.href);
     const sortSelect = document.querySelector("[sort-select]");
 

@@ -11,7 +11,7 @@ const statusSocket = require("../../sockets/client/status.socket");
 //[GET] /user/register
 module.exports.register = async (req, res) => {
     res.render("client/pages/user/register", {
-        pageTitle: "Dang ky"
+        pageTitle: "Đăng ký"
     })
 }
 
@@ -40,7 +40,7 @@ module.exports.postRegister = async (req, res) => {
 //[GET] /user/login
 module.exports.login = async (req, res) => {
     res.render("client/pages/user/login", {
-        pageTitle: "Dang nhap"
+        pageTitle: "Đăng nhập"
     })
 }
 
@@ -116,7 +116,7 @@ module.exports.logout = async (req, res) => {
 //[GET] /user/password/forgot
 module.exports.passwordForgot = async (req, res) => {
     res.render("client/pages/user/forgot-password", {
-        pageTitle: "Quen mat khau",
+        pageTitle: "Quên mật khẩu",
     })
 }
 
@@ -161,7 +161,7 @@ module.exports.passwordForgotPost = async (req, res) => {
 //[GET] /user/password/otp
 module.exports.otpPassword = async (req, res) => {
     res.render("client/pages/user/otp", {
-        pageTitle: "Nhap ma otp",
+        pageTitle: "Nhập mã OTP",
         email: req.query.email
     })
 }
@@ -195,7 +195,7 @@ module.exports.otpPost = async (req, res) => {
 //[GET] /user/password/reset
 module.exports.resetPassword = async (req, res) => {
     res.render("client/pages/user/reset-password", {
-        pageTitle: "Doi mat khau"
+        pageTitle: "Đổi mật khẩu"
     })
 }
 
@@ -216,6 +216,6 @@ module.exports.resetPasswordPost = async (req, res) => {
 //[GET] /user/info
 module.exports.info = async (req, res) => {
     res.render("client/pages/user/info", {
-        pageTitle: "Thong tin khach hang"
+        pageTitle: "Thông tin khách hàng"
     })
 }

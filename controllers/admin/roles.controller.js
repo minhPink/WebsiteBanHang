@@ -10,7 +10,7 @@ module.exports.index = async (req, res) => {
     const records = await Role.find(find);
 
     res.render("admin/pages/roles/index", {
-        pageTitle: "Nhom quyen",
+        pageTitle: "Nhóm quyền",
         records: records
     });
 }
@@ -38,7 +38,7 @@ module.exports.permissions = async (req, res) => {
     const records = await Role.find(find);
 
     res.render("admin/pages/roles/permissions", {
-        pageTitle: "Phan quyen",
+        pageTitle: "Phân quyền",
         records: records
     });
 }

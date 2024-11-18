@@ -4,7 +4,7 @@ const SettingGeneral = require("../../models/setting-general");
 module.exports.general = async (req, res) => {
     const settingGeneral = await SettingGeneral.findOne({});
     res.render("admin/pages/setting/general", {
-        pageTitle: "Cai dat chung",
+        pageTitle: "Cài đặt chung",
         settingGeneral: settingGeneral
     })
 }
@@ -21,7 +21,7 @@ module.exports.patchGeneral = async (req, res) => {
         await record.save()
     }
 
-    req.flash("success", "Cap nhat thanh cong !");
+    req.flash("success", "Cập nhật thành công !");
 
     res.redirect("back");
 }

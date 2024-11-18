@@ -10,7 +10,7 @@ module.exports.login = (req, res) => {
         res.redirect(`${configSystem.prefixAdmin}/dashboard`);
     } else {
         res.render("admin/pages/auth/login", {
-            pageTitle: "Trang dang nhap"
+            pageTitle: "Trang đăng nhập"
         });
     }
 };

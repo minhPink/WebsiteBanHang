@@ -7,14 +7,14 @@ const md5 = require("md5");
 // [GET] admin/my-account
 module.exports.index = (req, res) => {
     res.render("admin/pages/my-account/index", {
-        pageTitle: "Thong tin ca nhan"
+        pageTitle: "Thông tin cá nhân"
     })
 };
 
 // [GET] admin/my-account/edit
 module.exports.edit = async (req, res) => {
     res.render("admin/pages/my-account/edit", {
-        pageTitle: "Chinh sua thong tin ca nhan"
+        pageTitle: "Chỉnh sửa thông tin cá nhân"
     })
 };
 

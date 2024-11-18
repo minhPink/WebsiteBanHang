@@ -16,7 +16,7 @@ module.exports.index = async (req, res) => {
     const newRecords = createTreeHelper.tree(records);
 
     res.render("admin/pages/products-category/index", {
-        pageTitle: "Danh muc san pham",
+        pageTitle: "Danh mục sản phẩm",
         records: newRecords
     })
 }
@@ -33,7 +33,7 @@ module.exports.create = async (req, res) => {
 
 
     res.render("admin/pages/products-category/create", {
-        pageTitle: "Tao moi san pham",
+        pageTitle: "Tạo mới sản phẩm",
         records: newRecords
     })
 }

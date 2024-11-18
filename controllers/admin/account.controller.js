@@ -20,7 +20,7 @@ module.exports.index = async (req, res) => {
         record.role = role;
     }
     res.render("admin/pages/accounts/index", {
-        pageTitle: "Danh sach tai khoan",
+        pageTitle: "Danh sách tài khoản",
         records: records
     })
 };
@@ -34,7 +34,7 @@ module.exports.create = async (req, res) => {
 
     const roles = await Role.find(find);
     res.render("admin/pages/accounts/create", {
-        pageTitle: "Them moi tai khoan",
+        pageTitle: "Thêm mới tài khoản",
         roles: roles
     })
 };
@@ -73,7 +73,7 @@ module.exports.edit = async (req, res) => {
     });
 
     res.render("admin/pages/accounts/edit", {
-        pageTitle: "Chinh sua tai khoan",
+        pageTitle: "Chỉnh sửa tài khoản",
         record: record,
         roles: roles,
     })

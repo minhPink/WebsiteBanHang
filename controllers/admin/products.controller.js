@@ -1,4 +1,3 @@
-
 const Product = require("../../models/product.model");
 const ProductCategory = require("../../models/product-category.model");
 const Account = require("../../models/account.model");
@@ -33,8 +32,6 @@ module.exports.index = async (req, res) => {
         req.query,
         countPage
     )
-
-
     //pagination
 
     //sort-select
@@ -71,10 +68,8 @@ module.exports.index = async (req, res) => {
         }
     }
 
-
-
     res.render("admin/pages/products/index", {
-        pageTitle: "Danh sach san pham",
+        pageTitle: "Danh sách sản phẩm",
         products: products,
         filterStatus: filterStatus,
         keyword: formSearch.keyword,
@@ -182,7 +177,7 @@ module.exports.createItem = async (req, res) => {
     const newRecords = createTreeHelper.tree(records);
 
     res.render("admin/pages/products/create", {
-        pageTitle: "Them moi san pham",
+        pageTitle: "Thêm mới sản phẩm",
         records: newRecords
     })
 }

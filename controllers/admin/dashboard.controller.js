@@ -37,7 +37,7 @@ module.exports.dashboard = async (req, res) => {
     });
 
     res.render("admin/pages/dashboard/index", {
-        pageTitle: "Trang tong quan",
+        pageTitle: "Trang tổng quan",
         statistic: statistic 
     });
 };
