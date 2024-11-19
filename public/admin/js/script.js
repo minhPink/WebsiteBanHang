@@ -182,7 +182,7 @@ if (formSort) {
         window.location.href = url;
 
     });
-}
+};
 // End Form Sort
 
 

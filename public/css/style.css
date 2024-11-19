@@ -1546,3 +1546,15 @@ emoji-picker {
     border-radius: 4px; 
   }
 /* END CART */
+
+/* BUTTON-ORDER */
+.button-order {
+    margin-left: 55px;
+    margin-top: 10px;
+}
+.button-order .btn-info {
+    margin-right: 10px;
+    padding: 10px;
+    font-weight: bold;
+}
+/* END BUTTON-ORDER */

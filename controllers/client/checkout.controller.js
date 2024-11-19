@@ -30,7 +30,7 @@ module.exports.index = async (req, res) => {
     cart.totalPrice = cart.products.reduce((sum, item) => sum + item.totalPrice, 0);
 
     res.render("client/pages/checkout/index", {
-        pageTitle: "Dat hang",
+        pageTitle: "Đặt hàng",
         cart: cart
     })
 };
@@ -86,7 +86,6 @@ module.exports.success = async (req, res) => {
             _id: product.product_id
         }).select("title thumbnail");
 
-        console.log(productInfo);
 
         product.productInfo = productInfo;
         
@@ -99,7 +98,7 @@ module.exports.success = async (req, res) => {
     order.totalPrice = order.products.reduce((sum, item) => sum + item.totalPrice, 0);
 
     res.render("client/pages/checkout/success", {
-        pageTitle: "Dat hang thanh cong",
+        pageTitle: "Đặt hàng thành công",
         order : order
     })
 }

@@ -1,16 +1,16 @@
 const Product = require("../../models/product.model");
-
 const ProductCategory = require("../../models/product-category.model");
-
 const productHelper = require("../../helpers/product");
-
-const ProductCategoryHelper = require("../../helpers/productCategory");
+const productCategoryHelper = require("../../helpers/productCategory");
+const formSelectHelper = require("../../helpers/formSelect");
 // [GET] products
 module.exports.index = async (req, res) => {
+    // sort-select
+    let sort = formSelectHelper(req);
     const products = await Product.find({
         status: "active",
         deleted: false
-    }).sort({ position: "desc"});
+    }).sort(sort);
 
     const newProducts = productHelper.priceNewProducts(products);
     
@@ -52,21 +52,23 @@ module.exports.detailProduct = async (req, res ) => {
 
 // [GET] products/:slugCategory
 module.exports.category = async (req, res) => { 
+    //sort -select
+    let sort = formSelectHelper(req);
+
     const category = await ProductCategory.findOne({
         slug: req.params.slugCategory,
         deleted: false,
         status: "active"
     });
 
-
-    const listSubCategory = await ProductCategoryHelper.getSubCategory(category.id);
+    const listSubCategory = await productCategoryHelper.getSubCategory(category.id);
 
     const listSubCategoryId = listSubCategory.map( item => item.id );
 
     const products = await Product.find({
         products_category_id: { $in: [category.id, ...listSubCategoryId]},
         deleted: false
-    }).sort({ position : "desc"});
+    }).sort(sort);
 
     const newProducts = productHelper.priceNewProducts(products);
     
