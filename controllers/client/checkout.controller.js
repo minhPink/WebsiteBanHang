@@ -64,7 +64,7 @@ module.exports.order = async (req, res) => {
         // user_id: String,
         cart_id: cartId,
         userInfo: userInfo,
-        products: products
+        products: products,
     };
 
     const order = new Order(objectOrder);

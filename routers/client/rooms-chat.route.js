@@ -8,5 +8,7 @@ router.get("/", controller.index);
 
 router.get("/create", controller.createRoom);
 
+router.post("/create", controller.createRoomPost);
+
 
 module.exports = router;

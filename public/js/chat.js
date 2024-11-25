@@ -115,7 +115,6 @@ const input = document.querySelector(".chat-input input[name='content']");
 const emo = document.querySelector("emoji-picker");
 if(emo) {
     emo.addEventListener("emoji-click", (e) => {
-        console.log("oke");
         const icon = e.detail.unicode;
         input.value = input.value + icon;
         const end = input.value.length;

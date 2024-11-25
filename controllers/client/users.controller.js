@@ -29,7 +29,7 @@ module.exports.notFriends = async (req, res ) => {
 
 
     res.render("client/pages/users/not-friends", {
-        pageTitle: "Danh sach nguoi dung",
+        pageTitle: "Danh sách người dùng",
         users: users
     })
 }
@@ -50,7 +50,7 @@ module.exports.request = async (req, res) => {
     }).select("avatar fullName")
 
     res.render("client/pages/users/request", {
-        pageTitle: "Loi moi da gui",
+        pageTitle: "Lời mời đã gửi",
         users: users
     })
 }
@@ -71,7 +71,7 @@ module.exports.accept = async (req, res) => {
     }).select("avatar fullName")
 
     res.render("client/pages/users/accept", {
-        pageTitle: "Loi moi ket ban",
+        pageTitle: "Lời mời kết bạn",
         users: users
     })
 }
@@ -99,7 +99,7 @@ module.exports.friends = async (req, res) => {
     });
 
     res.render("client/pages/users/friends", {
-        pageTitle: "Danh sach ket ban",
+        pageTitle: "Danh sách kết bạn",
         users: users
     });
 }

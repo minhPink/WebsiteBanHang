@@ -14,17 +14,18 @@ block main
                     class="btn btn-sm btn-success mr-1"
                 ) Tạo phòng chat
         .row 
-            .col-3 
-                div(class="box-room")
-                    div(class="inner-avatar")
-                        img(
-                            src="/images/anh1.jpg", 
-                            alt="Phòng "
-                            )
-                    div(class="inner-info")
-                        div(class="inner-name") Phòng ABC 
-                        div(class="inner-bottom")
-                            a(
-                                href="#"
-                                class="btn btn-sm btn-primary mr-1"
-                            ) Nhắn tin 
+            .col-4
+                each roomChat in listRoomChat
+                    div(class="box-room")
+                        div(class="inner-avatar")
+                            img(
+                                src="/images/anh1.jpg", 
+                                alt=roomChat.title
+                                )
+                        div(class="inner-info")
+                            div(class="inner-name") #{roomChat.title}
+                            div(class="inner-bottom")
+                                a(
+                                    href=`/chat/${roomChat.id}`
+                                    class="btn btn-sm btn-primary mr-1"
+                                ) Nhắn tin 

@@ -1,0 +1,91 @@
+extends ../../layouts/default.pug
+include ../../mixins/table-tree.pug
+
+block main
+    if(role.permissions.includes("order_view")) 
+        h1 Danh sach don hang
+
+        .card.mb-3 
+            .card-header
+                .card-body 
+                    .row 
+                        .col-8
+                        .col-4
+                            if(role.permissions.includes("order_create")) 
+                                a(
+                                    href=`${prefixAdmin}/orders/create`
+                                    class="btn btn-outline-success"
+                                    ) + Them moi
+
+                    table(
+                    class="table table-hover table-sm mt-3"
+                    checkbox-multi
+                    )
+                        thead
+                            tr  
+                                th
+                                    input(type="checkbox" name="checkall")
+                                th STT 
+                                th Ma don hang
+                                th Ten khach hang
+                                th Ngay dat
+                                th Tong tien
+                                th Trang thai 
+                                th Hanh dong
+                        tbody
+                            //- Dữ liệu mẫu cố định
+                            tr  
+                                td 
+                                    input(type="checkbox" name="order1")
+                                td 1
+                                td #ORD001
+                                td Nguyen Van A
+                                td 2024-11-24
+                                td 2,500,000 VND
+                                td 
+                                    span.badge.badge-success Da giao
+                                td 
+                                    a(href=`${prefixAdmin}/orders/edit/1` class="btn btn-sm btn-outline-primary") Chinh sua
+                                    a(href=`${prefixAdmin}/orders/delete/1` class="btn btn-sm btn-outline-danger") Xoa
+                            tr  
+                                td 
+                                    input(type="checkbox" name="order2")
+                                td 2
+                                td #ORD002
+                                td Tran Thi B
+                                td 2024-11-20
+                                td 1,200,000 VND
+                                td 
+                                    span.badge.badge-warning Dang xu ly
+                                td 
+                                    a(href=`${prefixAdmin}/orders/edit/2` class="btn btn-sm btn-outline-primary") Chinh sua
+                                    a(href=`${prefixAdmin}/orders/delete/2` class="btn btn-sm btn-outline-danger") Xoa
+                            tr  
+                                td 
+                                    input(type="checkbox" name="order3")
+                                td 3
+                                td #ORD003
+                                td Le Van C
+                                td 2024-11-18
+                                td 3,000,000 VND
+                                td 
+                                    span.badge.badge-danger Huy bo
+                                td 
+                                    a(href=`${prefixAdmin}/orders/edit/3` class="btn btn-sm btn-outline-primary") Chinh sua
+                                    a(href=`${prefixAdmin}/orders/delete/3` class="btn btn-sm btn-outline-danger") Xoa
+
+        form(  
+            action=""
+            form-change-status 
+            method="POST"  
+            path=`${prefixAdmin}/orders/change-status`
+            ) 
+
+        form(  
+            action=""
+            form-delete-item
+            method="POST"  
+            path=`${prefixAdmin}/orders/delete`
+            ) 
+
+        script(src="/admin/js/orders.js")
