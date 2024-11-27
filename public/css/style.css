@@ -1547,14 +1547,22 @@ emoji-picker {
   }
 /* END CART */
 
-/* BUTTON-ORDER */
-.button-order {
-    margin-left: 55px;
-    margin-top: 10px;
-}
-.button-order .btn-info {
-    margin-right: 10px;
-    padding: 10px;
+/* BUTTON-QR CART */
+.btn-qr {
+    padding: 10px 27px;
     font-weight: bold;
 }
-/* END BUTTON-ORDER */
+/* END BUTTON-QR CART*/
+
+/* CHECK-OUT QR */
+.payqr img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.btn-qr button{
+    padding: 10px 20px;
+    font-weight: bold;
+    width: 100%;
+}
+/*END CHECK-OUT QR */

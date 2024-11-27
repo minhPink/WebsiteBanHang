@@ -1,6 +1,6 @@
 // Chuc nang gui yeu cau kb
 const listBtnAddFriends = document.querySelectorAll("[btn-add-friend]");
-if(listBtnAddFriends.length > 0) {
+if (listBtnAddFriends.length > 0) {
     listBtnAddFriends.forEach(button => {
         button.addEventListener("click", () => {
             button.closest(".box-user").classList.add("add");
@@ -14,7 +14,7 @@ if(listBtnAddFriends.length > 0) {
 
 // Chuc nang huy kb
 const listBtnCancelFriends = document.querySelectorAll("[btn-cancel-friend]");
-if(listBtnCancelFriends.length > 0) {
+if (listBtnCancelFriends.length > 0) {
     listBtnCancelFriends.forEach(button => {
         button.addEventListener("click", () => {
             button.closest(".box-user").classList.remove("add");
@@ -28,7 +28,7 @@ if(listBtnCancelFriends.length > 0) {
 
 // Chuc nang tu choi kb
 const listBtnRefuseFriends = document.querySelectorAll("[btn-refuse-friend]");
-if(listBtnRefuseFriends.length > 0) {
+if (listBtnRefuseFriends.length > 0) {
     listBtnRefuseFriends.forEach(button => {
         button.addEventListener("click", () => {
             button.closest(".box-user").classList.add("refuse");
@@ -42,7 +42,7 @@ if(listBtnRefuseFriends.length > 0) {
 
 // Chuc nang chap nhan kb
 const listBtnAcceptFriends = document.querySelectorAll("[btn-accept-friend]");
-if(listBtnAcceptFriends.length > 0) {
+if (listBtnAcceptFriends.length > 0) {
     listBtnAcceptFriends.forEach(button => {
         button.addEventListener("click", () => {
             button.closest(".box-user").classList.add("accepted");
@@ -59,7 +59,7 @@ socket.on("SERVER_RETURN_LENGTH_ACCEPT_FRIENDS", (data) => {
     const bagdeAcceptFriends = document.querySelector("[badge-users-accept]");
     const userId = document.getAttribute("badge-users-accept");
 
-    if(userId == data.userId){
+    if (userId == data.userId){
         bagdeAcceptFriends.innerHTML = data.lengthAcceptFriends;
     }
 })
@@ -70,9 +70,9 @@ socket.on("SERVER_RETURN_LENGTH_ACCEPT_FRIENDS", (data) => {
 socket.on("SERVER_RETURN_INFOR_ACCEPT_FRIEND", (data) => {
     // Trang loi moi ket ban
     const dataAcceptFriends = document.querySelector("[data-users-accept]");
-    if(dataAcceptFriends) {
+    if (dataAcceptFriends) {
         const userId = document.getAttribute("data-users-accept");
-        if(userId == data.userId){
+        if (userId == data.userId){
             // Ve user ra giao dien
             const newBoxUer = document.createElement("div");
             newBoxUer.classList.add("col-3");
@@ -116,9 +116,9 @@ socket.on("SERVER_RETURN_INFOR_ACCEPT_FRIEND", (data) => {
     }
     // Trang danh sach nguoi dung
     const dataUserNotFriends = document.querySelector("data-users-not-friend");
-    if(dataUserNotFriends) {
+    if (dataUserNotFriends) {
         const userId = document.getAttribute("data-users-not-friend");
-        if(userId == data.userId) {
+        if (userId == data.userId) {
             // Xoa A khoi danh sach cua B
             const boxUserRemove = document.querySelector(`[user-id=${data.infoUserA._id}]`);
             if(boxUserRemove) {
@@ -135,10 +135,10 @@ socket.on("SERVER_RETURN_USER_ID_CANCEL_FRIEND", (data) => {
     const dataAcceptFriends = document.querySelector("[data-users-accept]");
     const userId = document.getAttribute("data-users-accept");
 
-    if(userId == data.userId) {
+    if (userId == data.userId) {
         // Xoa A khoi danh sach cua B
         const boxUserRemove = document.querySelector(`[user-id=${data.userIdA}]`);
-        if(boxUserRemove) {
+        if (boxUserRemove) {
             dataAcceptFriends.removeChild(boxUserRemove);
         }
     }
@@ -148,9 +148,9 @@ socket.on("SERVER_RETURN_USER_ID_CANCEL_FRIEND", (data) => {
 // USER_ONLINE, OFFLINE
 const userStatus = (userId, status) => {
     const dataUserFriend = document.querySelector("[data-user-friend]");
-    if(dataUserFriend) {
+    if (dataUserFriend) {
             const boxUser = dataUserFriend.querySelector(`[user-id="${userId}"]`);
-        if(boxUser) {
+        if (boxUser) {
             boxUser.querySelector("[status]").setAttribute("status", status);
         }
     }

@@ -21,7 +21,7 @@ var swiper = new Swiper(".mySwiper", {
 
 // SHOW ITEM //
 const showItem = document.getElementById('see-more-btn');
-if(showItem) {
+if (showItem) {
   document.getElementById('see-more-btn').addEventListener('click', function() {
     const hiddenProducts = document.querySelectorAll('.hidden');
     

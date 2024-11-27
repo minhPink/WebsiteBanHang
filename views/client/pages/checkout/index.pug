@@ -84,17 +84,19 @@ block main
                                     name="address"
                                     required
                                 )
-    .container 
-        .row.button-order 
-            div(class="form-group")
-                button(
-                    form="form-order"
-                    class="btn btn-info btn-inlineblock"
-                    ) Thanh toán bằng mã QR  
-            div(class="form-group")
-                button(
-                    type="submit"
-                    form="form-order"
-                    class="btn btn-success btn-inlineblock"
-                    ) Thanh toán khi nhận hàng  
+                            div(class="form-group")
+                                label(for="totalPrice" class="d-none") Gía tiền
+                                input(
+                                    type="number"
+                                    class="d-none"
+                                    id="totalPrice"
+                                    name="totalPrice"
+                                    value=cart.totalPrice
+                                )
+                            div(class="form-group")
+                                button(
+                                    type="submit"
+                                    form="form-order"
+                                    class="btn btn-success btn-inlineblock"
+                                    ) Thanh toán khi nhận hàng  
     script(src="/js/cart.js")             
