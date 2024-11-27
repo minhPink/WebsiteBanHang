@@ -1,3 +1,130 @@
+/* LOGIN */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Bao bọc toàn bộ các quy tắc CSS trong .login-page */
+.login-page * {
+    box-sizing: border-box;
+}
+
+.login-page {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 0 24px;
+    background-image: url("/images/background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+    color: #000;
+    animation: rotate 6s infinite alternate linear;
+}
+
+.login-page .login-card {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    margin: 0 20px;
+    padding: 70px 30px 44px;
+    border-radius: 1.25rem;
+    background: #fff;
+    text-align: center;
+}
+
+.login-page .login-card > h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0 0 12px;
+}
+
+.login-page .login-card > h3 {
+    color: rgba(0, 0, 0, 0.38);
+    margin: 0 0 30px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.login-page .login-form {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+}
+
+.login-page .login-form > input,
+.login-page .login-form > button {
+    width: 100%;
+    height: 50px;
+}
+
+.login-page .login-form > input {
+    border: 2px solid #ebebeb;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 0 16px;
+    border-radius: 1.25rem;
+    transition: all 0.375s;
+}
+
+.login-page .login-form > input:hover {
+    border: 2px solid #10449A;
+}
+
+.login-page .login-form > button {
+    cursor: pointer;
+    width: 100%;
+    padding: 0 16px;
+    border-radius: 1.25rem;
+    background: #216ce7;
+    color: #f9f9f9;
+    border: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: all 0.375s;
+}
+
+.login-page .login-form > button:hover {
+    background: #10449A;
+}
+
+.login-page .login-form > a {
+    color: #216ce7;
+    font-size: 0.9rem;
+    text-align: left;
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: all 0.375s;
+}
+
+.login-page .login-form > a:hover {
+    color: #10449A;
+}
+
+@keyframes rotate {
+    100% {
+        background-position: 15% 50%;
+    }
+}
+
+@media (min-width: 500px) {
+    .login-page {
+        padding: 0;
+    }
+
+    .login-page .login-card {
+        margin: 0;
+        width: 400px;
+    }
+}
+
+/* END LOGIN */
 /* Header */
 .header {
     background: #202020;
