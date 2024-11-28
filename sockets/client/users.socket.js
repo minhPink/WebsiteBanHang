@@ -13,7 +13,7 @@ module.exports = async (res) => {
                 acceptFriends: myUserId
             })
             //
-            if(!exitsUserB) {
+            if (!exitsUserB) {
                 await Users.updateOne({
                     _id: userId
                 }, {
@@ -25,7 +25,7 @@ module.exports = async (res) => {
                 _id: myUserId,
                 requestFriends: userId
             })
-            if(!exitsUserA) {
+            if (!exitsUserA) {
                 await Users.updateOne({
                     _id: myUserId
                 }, {
@@ -64,7 +64,7 @@ module.exports = async (res) => {
                 acceptFriends: myUserId
             })
             //
-            if(exitsUserB) {
+            if (exitsUserB) {
                 await Users.updateOne({
                     _id: userId
                 }, {
@@ -76,7 +76,7 @@ module.exports = async (res) => {
                 _id: myUserId,
                 requestFriends: userId
             })
-            if(exitsUserA) {
+            if (exitsUserA) {
                 await Users.updateOne({
                     _id: myUserId
                 }, {
@@ -111,7 +111,7 @@ module.exports = async (res) => {
                 acceptFriends: userId
             })
             //
-            if(exitsUserB) {
+            if (exitsUserB) {
                 await Users.updateOne({
                     _id: myUserId
                 }, {
@@ -123,7 +123,7 @@ module.exports = async (res) => {
                 _id: userId,
                 requestFriends: myUserId
             })
-            if(exitsUserA) {
+            if (exitsUserA) {
                 await Users.updateOne({
                     _id: userId
                 }, {
@@ -149,7 +149,7 @@ module.exports = async (res) => {
 
             // Tao phong chat
             let roomChat;
-            if(exitsUserA && exitsUserB) {
+            if (exitsUserA && exitsUserB) {
                 roomChat = new RoomChat({
                     typeRoom: "friend",
                     users: [
@@ -166,7 +166,7 @@ module.exports = async (res) => {
             };
             await roomChat.save();
 
-            if(exitsUserB) {
+            if (exitsUserB) {
                 await Users.updateOne({
                     _id: myUserId
                 }, {
@@ -181,7 +181,7 @@ module.exports = async (res) => {
             };
             // Them {user_id, room_chat_id} cua B vao friendList cua A
             // xoa id cua ong B vao requestFriends ong A
-            if(exitsUserA) {
+            if (exitsUserA) {
                 await Users.updateOne({
                     _id: userId
                 }, {

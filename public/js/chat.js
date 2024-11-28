@@ -41,7 +41,7 @@ socket.on("SERVER_RETURN_MESSAGE", (data) => {
     let htmlContent = "";
     let htmlImages = "";
 
-    if(myId == data.user_id) {
+    if (myId == data.user_id) {
         li.classList.add("chat", "outgoing");
     } else {
         li.classList.add("chat", "incoming");
@@ -49,13 +49,13 @@ socket.on("SERVER_RETURN_MESSAGE", (data) => {
         htmlFullName += `<b>${data.fullName}</b>`;
         htmlFullName += `</div>`
     };
-    if(data.content) {
+    if (data.content) {
             htmlContent += `<div class="inner-content">`;
             htmlContent += `<p>${data.content}</p>`;
             htmlContent += `</div>`
     };
-    if(data.images.length > 0) {
-        if(myId == data.user_id){
+    if (data.images.length > 0) {
+        if (myId == data.user_id){
             htmlImages += `<div class="inner-images">`;
             for (const image of data.images) {
                 htmlImages += `<img src="${image}">`
@@ -82,7 +82,7 @@ socket.on("SERVER_RETURN_MESSAGE", (data) => {
 
 // SCROLL CHAT TO BOTTOM
 const bodyChat = document.querySelector(".chatbox");
-if(bodyChat) {
+if (bodyChat) {
     bodyChat.scrollTop = bodyChat.scrollHeight;
 }
 // END SCROLL CHAT TO BOTTOM
@@ -102,7 +102,7 @@ const showTyping = () => {
 
 // emoji-picker
 const buttonIcon = document.querySelector(".button-emo");
-if(buttonIcon){
+if (buttonIcon) {
     const tooltip = document.querySelector('.tooltip');
     Popper.createPopper(buttonIcon, tooltip);
 
@@ -113,7 +113,7 @@ if(buttonIcon){
 
 const input = document.querySelector(".chat-input input[name='content']");
 const emo = document.querySelector("emoji-picker");
-if(emo) {
+if (emo) {
     emo.addEventListener("emoji-click", (e) => {
         const icon = e.detail.unicode;
         input.value = input.value + icon;
@@ -128,7 +128,7 @@ if(emo) {
 
 // SEVER SEND TYPING
 const inputTyping = document.querySelector(".chat-input input[name='content']");
-if(inputTyping) {
+if (inputTyping) {
     inputTyping.addEventListener("keyup", () => {
         showTyping();
     });
@@ -139,9 +139,9 @@ if(inputTyping) {
 // SEVER RETURN TYPING
 socket.on("SERVER_RETURN_TYPING", (data) => {
     const bodyChat = document.querySelector(".chatbox");
-    if(data.type == "show"){
+    if (data.type == "show") {
         const exitsTyping = document.querySelector(`[user-id="${data.user_id}"]`);
-        if(!exitsTyping) {
+        if (!exitsTyping) {
             const bodyTyping = document.querySelector(".chat.typing");
             const div = document.createElement("div");
             div.classList.add("box-typing");
@@ -160,7 +160,7 @@ socket.on("SERVER_RETURN_TYPING", (data) => {
     } else {
         const boxTypingRemove = document.querySelector(`[user-id="${data.user_id}"]`);
 
-        if(boxTypingRemove) {
+        if (boxTypingRemove) {
             const bodyTyping = document.querySelector(".chat.typing");
             bodyTyping.removeChild(boxTypingRemove);
         }
