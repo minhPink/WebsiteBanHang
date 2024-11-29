@@ -19,19 +19,19 @@ block main
                         if (product.newPrice) 
                             div(class="inner-price-new") 
                                 h1 Giá : 
-                                span #{product.newPrice}$ 
-                    
+                                span #{product.newPrice.toLocaleString('vi-VN')}$ 
+
                         if(product.price)
-                            div(class="inner-price-old") #{product.price}$
-                    
+                            div(class="inner-price-old") #{product.price.toLocaleString('vi-VN')}$
+
                         if(product.discountPercentage)
                             div(class="inner-percent")  -#{product.discountPercentage}%
-                    
+
                     if(product.stock)
                         div(class="inner-stock") 
                             h1 Còn lại :
                             <span>#{product.stock} Sản phẩm</span>
-                    
+
                     form(
                         action=`/cart/add/${product.id}`
                         method="POST"
@@ -50,7 +50,7 @@ block main
                             class="btn btn-success btn-block"
                         ) THÊM VÀO GIỎ
     hr
-    
+
     .product-desc
         .container.my-5
             .row 
@@ -58,5 +58,41 @@ block main
                     +box-head("Mô tả sản phẩm")
                     hr
                     .inner-desc !{product.description}
+
+    hr
+    .comment-product 
+        .container
+            .row 
+                .col-12 
+                    +box-head("Bình luận và đánh giá")
+
+                    if (user)
+                        div(class="comment-section")
+                            form#commentForm(class="comment-form")
+                                input#commentInput(name="comment" type="text" placeholder="Viết bình luận của bạn tại đây..." required)
+                                button(type="submit") Bình luận
+
+                            div(id="commentList" class="comment-list")
+                                each comment in comments
+                                    div(class="comment-item")
+                                        div(class="comment-author") 
+                                            b #{comment.infoUser.fullName}
+                                        div(class="comment-text") 
+                                            b #{comment.content}
+                    else 
+                        div(class="comment-section")
+                            h4 Bạn cần phải đăng nhập trước khi muốn bình luận!
+
+                            div(id="commentList" class="comment-list")
+                                each comment in comments
+                                    div(class="comment-item")
+                                        div(class="comment-author") 
+                                            b #{comment.infoUser.fullName}
+                                        div(class="comment-text") 
+                                            b #{comment.content}
+
+            
+    block script 
+        script(type="module" src="/js/comment.js")
 
 
