@@ -16,7 +16,8 @@ const checkoutRouter = require("./checkout.route");
 const userRouter = require("./user.route");
 const chatRouter = require("./chat.route");
 const usersRouter = require("./users.route");
-const RoomsChat = require("./rooms-chat.route");
+const RoomsChatRouter = require("./rooms-chat.route");
+const chatGPTRouter = require("./chatgpt.route");
 
 module.exports = (app) => {
 
@@ -44,5 +45,7 @@ module.exports = (app) => {
 
     app.use("/users", authMiddleware.requireAuth, usersRouter);
 
-    app.use("/rooms-chat", authMiddleware.requireAuth, RoomsChat);
+    app.use("/rooms-chat", authMiddleware.requireAuth, RoomsChatRouter);
+
+    app.use("/chat-gpt", authMiddleware.requireAuth, chatGPTRouter);
 }
