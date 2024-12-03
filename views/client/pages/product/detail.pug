@@ -69,7 +69,10 @@ block main
                     if (user)
                         div(class="comment-section")
                             form#commentForm(class="comment-form")
-                                input#commentInput(name="comment" type="text" placeholder="Viết bình luận của bạn tại đây..." required)
+                                textarea#commentInput(
+                                    class="tinymce-textarea"
+                                    name="comment" type="text" placeholder="Viết bình luận của bạn tại đây..."
+                                    )
                                 button(type="submit") Bình luận
 
                             div(id="commentList" class="comment-list")
@@ -78,7 +81,7 @@ block main
                                         div(class="comment-author") 
                                             b #{comment.infoUser.fullName}
                                         div(class="comment-text") 
-                                            b #{comment.content}
+                                            b !{comment.content}
                     else 
                         div(class="comment-section")
                             h4 Bạn cần phải đăng nhập trước khi muốn bình luận!
@@ -89,7 +92,7 @@ block main
                                         div(class="comment-author") 
                                             b #{comment.infoUser.fullName}
                                         div(class="comment-text") 
-                                            b #{comment.content}
+                                            b !{comment.content}
 
             
     block script 

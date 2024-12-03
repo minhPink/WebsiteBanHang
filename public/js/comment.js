@@ -4,13 +4,13 @@ const formSendComment = document.getElementById('commentForm');
 if (formSendComment) {
     formSendComment.addEventListener("submit", (e) => {
         e.preventDefault();
-        const content = e.target.elements.comment.value;
+        const content = e.target.elements.comment.value.trim();
         if (content) {
             socket.emit("CLIENT_SEND_COMMENT", {
                 content: content
             });
 
-            e.target.elements.comment.value = "";
+            tinymce.get("commentInput").setContent("");
         }
     })
 }

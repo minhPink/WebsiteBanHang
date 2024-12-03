@@ -5,7 +5,6 @@ const User = require("../../models/users.model");
 const productHelper = require("../../helpers/product");
 const productCategoryHelper = require("../../helpers/productCategory");
 const formSelectHelper = require("../../helpers/formSelect");
-const CommentSocket = require("../../sockets/client/comment.socket");
 const commentSocket = require("../../sockets/client/comment.socket");
 // [GET] products
 module.exports.index = async (req, res) => {

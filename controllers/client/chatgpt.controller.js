@@ -1,7 +1,7 @@
 // [GET] /chat-gpt
 module.exports.index = (req, res) => {
-    res.render("client/pages/chatgpt/index",{
-        
+    res.render("client/pages/chatgpt/index", {
+        pageTile: "CHAT GPT"
     })
 };
 
@@ -10,17 +10,22 @@ module.exports.post = async (req, res) => {
     try {
         const prompt = req.body.prompt;
 
-        const response = await openai.chat.completions.create({
-            model: "gpt-4o-mini",
+        console.log(`[${new Date().toISOString()}] Received request: ${JSON.stringify(req.body)}`);
+
+
+
+        const response = await _openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
             messages: [
-                { role: "system", content: "You are a helpful assistant." }, 
-                { role: "user", content: prompt } 
+                { role: "user", content: "how are you?" }
             ],
         });
 
-        res.status(200).send({
-            bot: response.choices[0].message.content 
-        });
+        console.log(response.data.choices[0].message.content);
+
+        // res.status(200).send({
+        //     bot: response.choices[0].message.content 
+        // });
 
     } catch (error) {
         console.error(error);
@@ -28,3 +33,4 @@ module.exports.post = async (req, res) => {
     }
 
 }
+

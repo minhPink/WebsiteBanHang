@@ -61,7 +61,7 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-global.openai = openai;
+global._openai = openai;
 //OpenAi
 
 //Route
