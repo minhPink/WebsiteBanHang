@@ -1,11 +1,11 @@
 import * as Popper from 'https://cdn.jsdelivr.net/npm/@popperjs/core@^2/dist/esm/index.js';
-// import { FileUploadWithPreview } from 'https://unpkg.com/file-upload-with-preview/dist/index.js';
+import { FileUploadWithPreview } from 'https://unpkg.com/file-upload-with-preview/dist/index.js';
 
 // //FILE UPLOAD WITH PREVIEW
-// const upload = new FileUploadWithPreview('upload-img', {
-//     multiple: true,
-//     maxFileCount: 6
-// });
+const upload = new FileUploadWithPreview('upload-img', {
+    multiple: true,
+    maxFileCount: 6
+});
 // // //END FILE UPLOAD WITH PREVIEW
 
 
@@ -15,15 +15,15 @@ if (formSendData) {
     formSendData.addEventListener("submit", (e) => {
         e.preventDefault();
         const content = e.target.elements.content.value;
-        // const images = upload.cachedFileArray || [];
+        const images = upload.cachedFileArray || [];
 
         if(content || images.length > 0) {
             socket.emit("CLIENT_SEND_MESSAGE", {
                 content: content,
-                // images: images
+                images: images
             });
             e.target.elements.content.value = "";
-            // upload.resetPreviewPanel();
+            upload.resetPreviewPanel();
 
             socket.emit("SERVER_SEND_TYPING","hidden");
         }

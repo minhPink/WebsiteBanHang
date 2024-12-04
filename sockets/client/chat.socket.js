@@ -11,10 +11,10 @@ module.exports = async (req, res) => {
         socket.on("CLIENT_SEND_MESSAGE", async (data) => {
             let images = [];
 
-            // for(const imagesBuffer of data.images) {
-            //     const link = await uploadToCloudDinary(imagesBuffer);
-            //     images.push(link);
-            // }
+            for(const imagesBuffer of data.images) {
+                const link = await uploadToCloudDinary(imagesBuffer);
+                images.push(link);
+            }
 
             // Lưu vào database
             const chat = new Chat({

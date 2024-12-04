@@ -10,22 +10,17 @@ module.exports.post = async (req, res) => {
     try {
         const prompt = req.body.prompt;
 
-        console.log(`[${new Date().toISOString()}] Received request: ${JSON.stringify(req.body)}`);
-
-
-
         const response = await _openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
-                { role: "user", content: "how are you?" }
+                { role: "user", content: prompt }
             ],
         });
 
-        console.log(response.data.choices[0].message.content);
-
-        // res.status(200).send({
-        //     bot: response.choices[0].message.content 
-        // });
+        
+        res.status(200).send({
+            bot: response.choices[0].message.content 
+        });
 
     } catch (error) {
         console.error(error);
