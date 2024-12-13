@@ -1,7 +1,7 @@
 extends ../../layouts/default.pug 
 
 block main 
-    h1 Phan quyen 
+    h1 Phân quyền
 
     div(data-records=records)
 
@@ -10,7 +10,7 @@ block main
             type="submit"
             class="btn btn-primary mb-3"
             button-submit
-        ) Cap nhat 
+        ) Cập nhật 
 
     table(
         class="table table-hover table-sm"
@@ -18,9 +18,9 @@ block main
     )
         thead 
             tr
-                th Tinh nang 
-                th(class="text-center") Quan tri vien 
-                th(class="text-center") Quan tri noi dung 
+                th Tính năng 
+                th(class="text-center") Quản trị viên
+                th(class="text-center") Quản trị nội dung
         tbody 
             tr(data-name="id" class=" d-none")
                 td
@@ -30,96 +30,96 @@ block main
             //- Danh muc san pham
             tr 
                 td(colspan="4")
-                    b Danh muc san pham 
+                    b Danh mục sản phẩm 
             tr(data-name="product-category_view")
                 td Xem 
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="product-category_create")
-                td Them moi 
+                td Thêm mới
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="product-category_edit")
-                td Chinh sua
+                td Chỉnh sửa
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="product-category_deleted")
-                td Xoa
+                td Xóa
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             //- San pham
             tr 
                 td(colspan="4")
-                    b San pham 
+                    b Sản phẩm 
             tr(data-name="product_view")
                 td Xem 
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="product_create")
-                td Them moi 
+                td Thêm mới
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="product_edit")
-                td Chinh sua
+                td Chỉnh sửa
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="product_deleted")
-                td Xoa
+                td Xóa
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             //- Nhom quyen
             tr 
                 td(colspan="4")
-                    b Nhom quyen
+                    b Nhóm quyền
             tr(data-name="role_view")
                 td Xem 
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="role_create")
-                td Them moi 
+                td Thêm mới 
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="role_edit")
-                td Chinh sua
+                td Chỉnh sửa
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="role_deleted")
-                td Xoa
+                td Xóa
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             //- Tai khoan
             tr 
                 td(colspan="4")
-                    b Tai khoan
+                    b Tài khoản
             tr(data-name="account_view")
                 td Xem 
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="account_create")
-                td Them moi 
+                td Thêm mới 
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="account_edit")
-                td Chinh sua
+                td Chỉnh sửa
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")
             tr(data-name="account_deleted")
-                td Xoa
+                td Xóa
                 each item in records 
                     td(class="text-center") 
                         input(type="checkbox")

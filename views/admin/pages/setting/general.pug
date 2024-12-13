@@ -2,7 +2,7 @@ extends ../../layouts/default.pug
 include ../../mixins/alert.pug
 
 block main 
-    h1  Cai dat chung
+    h1  Cài đặt chung
 
     +alert-success()
     +alert-error()
@@ -13,7 +13,7 @@ block main
         enctype="multipart/form-data"
     )
         div(class="form-group")
-            label(for="websiteName") Ten website 
+            label(for="websiteName") Tên website 
             input(
                 type="text"
                 id="websiteName"
