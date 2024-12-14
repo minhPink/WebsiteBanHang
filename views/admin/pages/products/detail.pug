@@ -5,13 +5,13 @@ block main
         h1(class="mb-4")  #{product.title}
     
     if (product.price)
-        div(class="mb-4") Gia : <b>#{product.price}</b>
+        div(class="mb-4") Gía : <b>#{product.price} VNĐ</b>
 
     if (product.discountPercentage)
-        div(class="mb-4") Giam gia : <b>#{product.discountPercentage}</b>
+        div(class="mb-4") Giảm giá : <b>#{product.discountPercentage}</b>
     
     if (product.stock)
-        div(class="mb-4") Con lai : <b>#{product.stock}</b>
+        div(class="mb-4") Còn lại : <b>#{product.stock} sản phẩm</b>
 
     if (product.thumbnail)
         div(class="mb-4")
@@ -24,12 +24,12 @@ block main
         div(class="mb-4")
             span Trang thai : 
             if (product.status == "active")
-                span(class="badge badge-success") Hoat dong
+                span(class="badge badge-success") Hoạt động
             else 
-                span(class="badge badge-danger") Dung hoat dong
+                span(class="badge badge-danger") Dừng hoạt động
 
     if (product.position)
-        div(class="mb-4") Vi tri : <b>#{product.position}</b>
+        div(class="mb-4") Vị trí : <b>#{product.position}</b>
 
     if (product.description)
         div.mb-4!= product.description

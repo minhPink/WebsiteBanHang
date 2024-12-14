@@ -2,22 +2,22 @@ mixin table-tree(records, level = 1)
     each item, index in records
         - const prefix = Array(level + 1).join("--")
         tr
-            td 
-                input(
-                    type="checkbox" name="id"
-                    value=item.id
-                    )
+            //- td 
+            //-     input(
+            //-         type="checkbox" name="id"
+            //-         value=item.id
+            //-         )
 
-            td #{item.index}
-            td 
+            td.text-center #{item.index}
+            td.text-center 
                 img(
                     src=item.thumbnail, 
                     alt=item.title,
                     width= "100px",
                     height= "80px"
                     )
-            td #{prefix}#{item.title}
-            td 
+            td.text-center #{prefix}#{item.title}
+            td.text-center 
                 input(
                     type="number"
                     value=item.position 
@@ -25,7 +25,7 @@ mixin table-tree(records, level = 1)
                     name="position"
                     min=1
                 )
-            td 
+            td.text-center 
                 if(role.permissions.includes("product-category_edit")) 
                     if(item.status == "active")
                         a(
@@ -43,7 +43,7 @@ mixin table-tree(records, level = 1)
                             button-change-status
                             class="badge badge-danger"
                         ) Dừng hoạt động
-            td   
+            td.text-center   
                 a(  
                     href=`${prefixAdmin}/products/detail/${item.id}`
                     class="btn btn-secondary btn-sm"

@@ -1,1 +1,38 @@
 extends ../../layouts/default.pug 
+
+block main 
+    h1(class="mb-4") Đơn hàng
+
+    .card.mb-3 
+        .card-header 
+            .card-body
+                table(
+                    class="table table-hover table-sm mt-3 table-bordered"
+                )
+                    thead 
+                        tr 
+                            th.text-center STT 
+                            th.text-center Tên người đặt hàng
+                            th.text-center Giá tiền 
+                            th.text-center Địa chỉ
+                            th.text-center Trạng thái
+                    tbody 
+                        each order, index in orders 
+                            tr 
+                                td.text-center #{index + 1} 
+                                td.text-center #{order.userInfo.fullName}
+                                td.text-center #{order.totalPrice.toLocaleString('vi-VN')} VNĐ
+                                td.text-center #{order.userInfo.address}
+                                td.text-center 
+                                    select(
+                                        name="order-status"
+                                        id="order-status-select"
+                                        order-status-select
+                                    )
+                                        option(class="badge badge-info" value="status-delivering" selected=(order.status === "delivering")) Đang giao hàng
+                                        option(class="badge badge-success" value="status-success" selected=(order.status === "success")) Thành công
+                                        option(class="badge badge-danger" value="status-refuse" selected=(order.status === "refuse")) Từ chối
+                                        option(class="badge badge-warning" value="status-spending" selected=(order.status === "spending")) Chờ xử lý
+
+
+

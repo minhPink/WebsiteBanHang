@@ -19,10 +19,10 @@ block main
                         if (product.newPrice) 
                             div(class="inner-price-new") 
                                 h1 Giá : 
-                                span #{product.newPrice.toLocaleString('vi-VN')}$ 
+                                span #{product.newPrice.toLocaleString('vi-VN')} VNĐ
 
                         if(product.price)
-                            div(class="inner-price-old") #{product.price.toLocaleString('vi-VN')}$
+                            div(class="inner-price-old") #{product.price.toLocaleString('vi-VN')} VNĐ
 
                         if(product.discountPercentage)
                             div(class="inner-percent")  -#{product.discountPercentage}%

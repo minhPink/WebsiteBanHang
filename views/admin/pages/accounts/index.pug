@@ -15,32 +15,32 @@ block main
                     ) + Thêm mới 
         
             table(
-                    class="table table-hover table-sm mt-3"
+                    class="table table-hover table-sm mt-3 table-bordered"
                 )
                     thead
                         tr  
-                            th STT 
-                            th Avatar
-                            th Họ tên
-                            th Phân quyền
-                            th Email
-                            th Trạng thái 
-                            th Hành động
+                            th.text-center STT 
+                            th.text-center Avatar
+                            th.text-center Họ tên
+                            th.text-center Phân quyền
+                            th.text-center Email
+                            th.text-center Trạng thái 
+                            th.text-center Hành động
                     tbody
                         each item, index in records
                             tr
-                                td #{index + 1}
-                                td 
+                                td.text-center #{index + 1}
+                                td.text-center 
                                     img(
                                         src=item.avatar, 
                                         alt="",
                                         width= "100px",
                                         height= "80px"
                                         )
-                                td #{item.fullName}
-                                td #{item.role.title}
-                                td #{item.email}
-                                td 
+                                td.text-center #{item.fullName}
+                                td.text-center #{item.role.title}
+                                td.text-center #{item.email}
+                                td.text-center
                                     if(item.status == "active")
                                         a(
                                             href="javascript:;"
@@ -57,7 +57,7 @@ block main
                                             button-change-status
                                             class="badge badge-danger"
                                         ) Dừng hoạt động
-                                td  
+                                td.text-center  
                                     a(  
                                         href=`${prefixAdmin}/products/detail/${item.id}`
                                         class="btn btn-secondary btn-sm"

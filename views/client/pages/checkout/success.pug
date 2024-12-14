@@ -57,9 +57,9 @@ block main
                                                 width="80px"
                                             )
                                         td #{item.productInfo.title}
-                                        td #{item.newPrice}$
+                                        td #{item.newPrice.toLocaleString('vi-VN')} VNĐ
                                         td #{item.quantity}
-                                        td #{item.totalPrice}$  
+                                        td #{item.totalPrice.toLocaleString('vi-VN')} VNĐ 
 
                             else 
                                 tr 
@@ -67,4 +67,4 @@ block main
                                         colspan="7"
                                         class="text-center"
                                     )   Giỏ hàng trống
-                    h3(class="text-right") Tổng đơn hàng : #{order.totalPrice}$
+                    h3(class="text-right") Tổng đơn hàng : #{order.totalPrice.toLocaleString('vi-VN')} VNĐ

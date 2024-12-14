@@ -7,9 +7,9 @@ mixin product-item(item, className)
                     .inner-featured HOT
             .inner-content 
                 a(href=`/products/detail/${item.slug}`).inner-title #{item.title}
-                .inner-price-old Giá: #{item.price.toLocaleString('vi-VN')}$
+                .inner-price-old Giá: #{item.price.toLocaleString('vi-VN')} VNĐ
                 .inner-discount -#{item.discountPercentage}%
-                .inner-price-new Giá KM : #{item.newPrice.toLocaleString('vi-VN')}$
+                .inner-price-new Giá KM : #{item.newPrice.toLocaleString('vi-VN')} VNĐ
 
             .inner-add-to-cart 
                 form(

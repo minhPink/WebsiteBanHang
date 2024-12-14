@@ -11,26 +11,26 @@ block main
                     .col-4
                         a(
                             href=`${prefixAdmin}/roles/create`
-                            class= "btn btn-outline-success"
+                            class= "btn btn-outline-success mb-3"
                             ) + Thêm mới
 
                 table(
-                    class="table table-hover table-sm"
+                    class="table table-hover table-sm table-bordered"
                     checkbox-multi
                 )
                     thead
                         tr  
-                            th STT 
-                            th Nhóm quyền 
-                            th Mô tả ngắn
-                            th Hành động
+                            th.text-center STT 
+                            th.text-center Nhóm quyền 
+                            th.text-center Mô tả ngắn
+                            th.text-center Hành động
                     tbody
                         each item, index in records
                             tr
-                                td #{index + 1}
-                                td #{item.title}
-                                td #{item.description}
-                                td  
+                                td.text-center #{index + 1}
+                                td.text-center #{item.title}
+                                td.text-center #{item.description}
+                                td.text-center  
                                     a(  
                                         href=`${prefixAdmin}/roles/detail/${item.id}`
                                         class="btn btn-secondary btn-sm"

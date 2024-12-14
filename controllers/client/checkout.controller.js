@@ -2,6 +2,7 @@ const Cart = require("../../models/cart.model");
 const Product = require("../../models/product.model");
 const Order = require("../../models/order.model");
 const productHelper = require("../../helpers/product");
+const totalPriceHelper = require("../../helpers/totalPrice");
 
 //[GET] /checkout/cod
 module.exports.cod = async (req, res) => {
@@ -11,21 +12,24 @@ module.exports.cod = async (req, res) => {
         _id: cartId
     });
 
-    if (cart.products.length > 0) {
-        for (const item of cart.products) {
-            const productId = item.product_id;
+    // tinh tong tien san pham trong mang products
+    await totalPriceHelper(cart);
 
-            const productInfo = await Product.findOne({
-                _id: productId
-            });
+    // if (cart.products.length > 0) {
+    //     for (const item of cart.products) {
+    //         const productId = item.product_id;
 
-            productInfo.newPrice = productHelper.priceNewProduct(productInfo);
+    //         const productInfo = await Product.findOne({
+    //             _id: productId
+    //         });
 
-            item.productInfo = productInfo;
+    //         productInfo.newPrice = productHelper.priceNewProduct(productInfo);
 
-            item.totalPrice = item.quantity * productInfo.newPrice;
-        }
-    };
+    //         item.productInfo = productInfo;
+
+    //         item.totalPrice = item.quantity * productInfo.newPrice;
+    //     }
+    // };
     //Tong tien ca gio hang
     cart.totalPrice = cart.products.reduce((sum, item) => sum + item.totalPrice, 0);
 
@@ -44,21 +48,24 @@ module.exports.qr = async (req, res) => {
         _id: cartId
     });
 
-    if (cart.products.length > 0) {
-        for (const item of cart.products) {
-            const productId = item.product_id;
+    // tinh tong tien san pham trong mang products
+    await totalPriceHelper(cart);
 
-            const productInfo = await Product.findOne({
-                _id: productId
-            });
+    // if (cart.products.length > 0) {
+    //     for (const item of cart.products) {
+    //         const productId = item.product_id;
 
-            productInfo.newPrice = productHelper.priceNewProduct(productInfo);
+    //         const productInfo = await Product.findOne({
+    //             _id: productId
+    //         });
 
-            item.productInfo = productInfo;
+    //         productInfo.newPrice = productHelper.priceNewProduct(productInfo);
 
-            item.totalPrice = item.quantity * productInfo.newPrice;
-        }
-    };
+    //         item.productInfo = productInfo;
+
+    //         item.totalPrice = item.quantity * productInfo.newPrice;
+    //     }
+    // };
     //Tong tien ca gio hang
     cart.totalPrice = cart.products.reduce((sum, item) => sum + item.totalPrice, 0);
 
@@ -78,6 +85,7 @@ module.exports.qr = async (req, res) => {
 
 //[POST] /checkout/order
 module.exports.order = async (req, res) => {
+    const user_id = res.locals.user.id;
     const cartId = req.cookies.cartId;
     const userInfo = req.body;
     const cart = await Cart.findOne({
@@ -102,7 +110,7 @@ module.exports.order = async (req, res) => {
         products.push(objectProducts);
     };
     const objectOrder = {
-        // user_id: String,
+        user_id: user_id,
         cart_id: cartId,
         userInfo: userInfo,
         products: products,
@@ -129,6 +137,7 @@ module.exports.orderQr = async (req, res) => {
         const dataTotalPrice = data.data[data.data.length - 1]['Giá trị'];
 
         if (totalPrice == dataTotalPrice) {
+            const user_id = res.locals.user.id;
             const cartId = req.cookies.cartId;
             const userInfo = req.body;
             const cart = await Cart.findOne({
@@ -153,7 +162,7 @@ module.exports.orderQr = async (req, res) => {
                 products.push(objectProducts);
             };
             const objectOrder = {
-                // user_id: String,
+                user_id: user_id,
                 cart_id: cartId,
                 userInfo: userInfo,
                 products: products,
