@@ -12,7 +12,7 @@ if (listSelectStatus) {
             selectStatus.classList.add('bg-success'); 
         } else if (status === "refuse") {
             selectStatus.classList.add('bg-danger');
-        } else if (status === "spending") {
+        } else if (status === "pending") {
             selectStatus.classList.add('bg-warning'); 
         }
     };

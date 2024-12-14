@@ -2,12 +2,15 @@ const md5 = require("md5");
 const User = require("../../models/users.model");
 const ForgotPassword = require("../../models/forgot-password.model");
 const Cart = require("../../models/cart.model");
+const Order = require("../../models/order.model");
 
 const generateHelper = require("../../helpers/generate");
 
 const sendMailHelper = require("../../helpers/sendMail");
 
 const statusSocket = require("../../sockets/client/status.socket");
+
+const totalPriceHelper = require("../../helpers/totalPrice");
 //[GET] /user/register
 module.exports.register = async (req, res) => {
     res.render("client/pages/user/register", {
@@ -218,4 +221,38 @@ module.exports.info = async (req, res) => {
     res.render("client/pages/user/info", {
         pageTitle: "Thông tin khách hàng"
     })
+}
+
+//[GET] /user/order-history
+module.exports.orderHistory = async (req, res) => {
+    const user_id = res.locals.user.id;
+    const orders = await Order.find({
+        user_id: user_id,
+        deleted: false
+    })
+    if (orders) {
+        for(const order of orders) {
+            await totalPriceHelper(order);
+            order.totalPrice = order.products.reduce((sum, item) => sum + item.totalPrice, 0);
+        }
+    }
+    res.render("client/pages/user/order-history", {
+        pageTitle: "Lịch sử đặt hàng",
+        orders: orders
+    })
+}
+
+//[DELETE] /user/order-history/delete/:id
+module.exports.cancelOrder = async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Order.updateOne({_id: id}, {
+            deleted: true
+        });
+
+        req.flash('success', 'Bạn đã hủy đơn hàng thành công!');
+        res.redirect("back");
+    } catch (error) {
+        res.redirect("back");
+    }
 }

@@ -4,7 +4,7 @@ include ../../mixins/alert.pug
 block main 
 
     +alert-success()
-    
+
     h1(class="mb-4") Đơn hàng
 
     .card.mb-3 
@@ -37,7 +37,7 @@ block main
                                         option(class="badge badge-info" value="delivering" selected=(order.status === "delivering")) Đang giao hàng
                                         option(class="badge badge-success" value="success" selected=(order.status === "success")) Thành công
                                         option(class="badge badge-danger" value="refuse" selected=(order.status === "refuse")) Từ chối
-                                        option(class="badge badge-warning" value="spending" selected=(order.status === "spending")) Chờ xử lý
+                                        option(class="badge badge-warning" value="pending" selected=(order.status === "pending")) Chờ xử lý
 
     form(
         action=""

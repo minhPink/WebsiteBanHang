@@ -54,8 +54,10 @@ block main
                                             class="btn btn-danger"
                                         ) Xóa
 
-                h3(class="text-right") Tổng đơn hàng : #{cart.totalPrice.toLocaleString('vi-VN')} VNĐ
-                div(class="text-right mt-3")
+                div(class="d-inline-block mt-1")
+                    a(href="/user/order-history" class="btn btn-secondary") Lịch sử đặt hàng
+
+                h3(class="text-right mt-n5") Tổng đơn hàng : #{cart.totalPrice.toLocaleString('vi-VN')} VNĐ
                      
                 div(class="text-right mt-3")
                     a(href="/checkout/cod" class="btn btn-success") Thanh toán khi nhận hàng   

@@ -31,4 +31,8 @@ router.post("/password/reset", userVaildate.resetPassword,controller.resetPasswo
 
 router.get("/info",authMiddleware.requireAuth, controller.info);
 
+router.get("/order-history", controller.orderHistory);
+
+router.delete("/order-history/delete/:id", controller.cancelOrder);
+
 module.exports = router;

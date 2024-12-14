@@ -1790,3 +1790,110 @@ emoji-picker {
     height: 30px;
   }
 /* END CHAT GPT */
+
+/* ORDER HISTORY */
+.container-order {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    margin-top: -35px;
+}
+
+.container-order .order-history {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container-order .order-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    background-color: #fff;
+}
+
+.container-order .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container-order .status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+.container-order .status.success {
+    background-color: #28a745;
+}
+
+.container-order .status.pending {
+    background-color: #ffc107;
+}
+
+.container-order .status.refuse {
+    background-color: #dc3545;
+}
+
+.container-order .status.delivering {
+    background-color: #007bff;
+}
+
+.container-order .order-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-order .product {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.container-order .product img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.container-order .product-info {
+    flex: 1;
+}
+
+.container-order .product-info p {
+    margin: 0;
+}
+
+.container-order .total-price {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+.container-order .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -10px;
+}
+
+.container-order .btn-cancel {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: -20px;
+}
+
+.container-order .btn-cancel:hover {
+    background-color: #a71d2a;
+}
+/* END ORDER HISTORY */
