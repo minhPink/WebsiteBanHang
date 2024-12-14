@@ -20,6 +20,10 @@ const orderSchema = new mongoose.Schema({
         type: String,
         default: "spending"
     },
+    deleted : {
+        type: Boolean,
+        default: false
+    }
 },
     {
     timestamps: true

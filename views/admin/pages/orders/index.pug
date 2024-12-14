@@ -1,6 +1,10 @@
-extends ../../layouts/default.pug 
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
 
 block main 
+
+    +alert-success()
+    
     h1(class="mb-4") Đơn hàng
 
     .card.mb-3 
@@ -25,14 +29,22 @@ block main
                                 td.text-center #{order.userInfo.address}
                                 td.text-center 
                                     select(
+                                        data-id=order.id
                                         name="order-status"
                                         id="order-status-select"
                                         order-status-select
                                     )
-                                        option(class="badge badge-info" value="status-delivering" selected=(order.status === "delivering")) Đang giao hàng
-                                        option(class="badge badge-success" value="status-success" selected=(order.status === "success")) Thành công
-                                        option(class="badge badge-danger" value="status-refuse" selected=(order.status === "refuse")) Từ chối
-                                        option(class="badge badge-warning" value="status-spending" selected=(order.status === "spending")) Chờ xử lý
+                                        option(class="badge badge-info" value="delivering" selected=(order.status === "delivering")) Đang giao hàng
+                                        option(class="badge badge-success" value="success" selected=(order.status === "success")) Thành công
+                                        option(class="badge badge-danger" value="refuse" selected=(order.status === "refuse")) Từ chối
+                                        option(class="badge badge-warning" value="spending" selected=(order.status === "spending")) Chờ xử lý
 
+    form(
+        action=""
+        form-change-statusOrder 
+        method="POST"
+        path=`${prefixAdmin}/orders/change-status`
+    )
 
+    script(src="/admin/js/orders.js")
 

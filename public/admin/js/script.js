@@ -14,7 +14,6 @@ if (buttonStatus.length > 0) {
                 url.searchParams.set("status", "");
             }
             window.location.href = url.href;
-            console.log(url);
 
         })
     })
@@ -172,7 +171,6 @@ if (formSort) {
     const sortSelect = document.querySelector("[sort-select]");
 
     sortSelect.addEventListener("change", (e) => {
-        console.log(e);
         const valueOption = e.target.value;
         const [sortKey, sortValue] = valueOption.split("-");
         
@@ -184,42 +182,6 @@ if (formSort) {
     });
 };
 // End Form Sort
-
-// Select status orders
-const listSelectStatus = document.querySelectorAll("#order-status-select");
-
-if (listSelectStatus) {
-    // Hàm thay đổi màu nền của select khi thay đổi giá trị
-    const changeSelectColor = (selectStatus, status) => {
-        // Xóa tất cả các lớp màu trước
-        selectStatus.classList.remove('bg-info', 'bg-success', 'bg-danger', 'bg-warning');
-
-        // Thêm lớp màu mới dựa trên trạng thái
-        if (status === "status-delivering") {
-            selectStatus.classList.add('bg-info'); // Xanh nước biển
-        } else if (status === "status-success") {
-            selectStatus.classList.add('bg-success'); // Xanh lá cây
-        } else if (status === "status-refuse") {
-            selectStatus.classList.add('bg-danger'); // Đỏ
-        } else if (status === "status-spending") {
-            selectStatus.classList.add('bg-warning'); // Vàng
-        }
-    };
-
-    // Lặp qua tất cả các select và thay đổi màu nền ngay khi trang tải
-    listSelectStatus.forEach(selectStatus => {
-        const initialStatus = selectStatus.value;  // Lấy giá trị trạng thái ban đầu
-        changeSelectColor(selectStatus, initialStatus); // Gọi hàm để thay đổi màu nền khi trang được tải
-
-        selectStatus.addEventListener("change", (e) => {
-            const status = e.target.value;
-            changeSelectColor(selectStatus, status);  // Thay đổi màu khi chọn trạng thái mới
-        });
-    });
-}
-
-
-// End select status orders
 
 
 
