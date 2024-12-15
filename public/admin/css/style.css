@@ -131,7 +131,7 @@ html, body {
     padding: 20px 0;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 9999;
 }
 
 .header .inner-logo a {
@@ -294,3 +294,233 @@ html, body {
     display: inline;
 }
 /* End Remove Preview */
+
+/* DASHBOARD */
+.top-container a{
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.top-container canvas{
+    width: 100% !important;
+}
+
+.top-container{
+    background: #F7F7F7;
+    border-radius: 0 0 30px 30px;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.top-container .status{
+    padding: 20px 20px 10px;
+}
+
+.top-container .status .header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #F7F7F7;
+}
+
+.top-container .status .header h4{
+    color: #333;
+    font-weight: 500;
+}
+
+.top-container .status .header h4#big{
+    flex: 3;
+}
+
+.top-container .status .header h4#small{
+    flex: 1;
+    padding-left: 90px;
+}
+
+.top-container .status .items-list{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.top-container .status .items-list .item{
+    background: #e0f2fe;
+    width: 25%;
+    padding: 20px;
+    border-radius: 18px;
+    height: 150px;
+}
+
+.top-container .status .items-list .item:nth-child(2){
+    background: #fffbeb;
+}
+
+.top-container .status .items-list .item:nth-child(3){
+    background: #bfdbfe;
+}
+
+.top-container .status .items-list .item:nth-child(4){
+    background: #031224;
+    padding: 10px;
+}
+
+.top-container .status .items-list .item .info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.top-container .status .items-list .item .info h5{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.top-container .status .items-list .item .info p{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.top-container .status .items-list .item .info > i{
+    font-size: 20px;
+    padding: 10px;
+    background: #031224;
+    color: #f1f3f2;
+    border-radius: 50%;
+}
+
+.top-container .status .items-list .item .progress{
+    position: relative;
+    height: 10px;
+    background: #b7c0cd;
+    border-radius: 10px;
+}
+
+.top-container .status .items-list .item .progress .bar{
+    width: 92%;
+    height: 10px;
+    background: #031224;
+    border-radius: 10px;
+}
+
+.top-container .status .items-list .item .progress::before{
+    content: "92%";
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.top-container .status .items-list .item:nth-child(2) .progress{
+    background: #d6d3d1;
+}
+
+.top-container .status .items-list .item:nth-child(2) .progress .bar{
+    width: 65%;
+}
+
+.top-container .status .items-list .item:nth-child(2) .progress::before{
+    content: "65%";
+}
+
+
+.top-container .status .items-list .item:nth-child(3) .progress{
+    background: #94a3b8;
+}
+
+.top-container .status .items-list .item:nth-child(3) .progress .bar{
+    width: 80%;
+}
+
+.top-container .status .items-list .item:nth-child(3) .progress::before{
+    content: "80%";
+}
+
+.bottom-container{
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+    position: relative;
+    z-index: 3;
+}
+
+.bottom-container .prog-status,
+.bottom-container .popular,
+.bottom-container .upcoming{
+    background: #F7F7F7;
+    padding: 20px;
+    border-radius: 24px;
+}
+
+.bottom-container .prog-status{
+    width: 100%;
+    height: auto;
+}
+
+.bottom-container .prog-status .header,
+.bottom-container .popular .header,
+.bottom-container .upcoming .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: #F7F7F7;
+}
+
+.bottom-container .prog-status .header h4,
+.bottom-container .popular .header h4,
+.bottom-container .upcoming .header h4{
+    font-weight: 600;
+}
+
+.bottom-container .prog-status .header .tabs{
+    background: #f3f3f3;
+    padding: 4px;
+    border-radius: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.bottom-container .prog-status .header .tabs a{
+    padding: 4px 20px;
+    font-size: 12px;
+    color: #000;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.bottom-container .prog-status .header .tabs a.active{
+    background: #fff;
+}
+
+.bottom-container .prog-status .details{
+    display: flex;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.bottom-container .prog-status .details .item h2{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.bottom-container .prog-status .details .item p{
+    font-size: 13px;
+    color: #9b9b9b;
+}
+
+.bottom-container .prog-status .details .separator{
+    width: 2px;
+    height: 70px;
+    background: #f3f3f3;
+}
+
+
+/* END DASHBOARD */

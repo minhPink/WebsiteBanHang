@@ -1,4 +1,6 @@
 const ProductCategory = require("../../models/product-category.model");
+const Product = require("../../models/product.model");
+const Order = require("../../models/order.model");
 
 // [GET] admin/dashboard
 module.exports.dashboard = async (req, res) => {
@@ -23,6 +25,11 @@ module.exports.dashboard = async (req, res) => {
             active: 0,
             inactive: 0
         },
+        order: {
+            total: 0,
+            active: 0,
+            inactive: 0
+        }
     };
     statistic.categoryProduct.total = await ProductCategory.countDocuments({
         deleted: false
@@ -36,8 +43,28 @@ module.exports.dashboard = async (req, res) => {
         status: "inactive"
     });
 
+    statistic.product.total = await Product.countDocuments({
+        deleted: false
+    });
+    statistic.product.active = await Product.countDocuments({
+        deleted: false,
+        status: "active"
+    });
+    statistic.product.inactive = await Product.countDocuments({
+        deleted: false,
+        status: "inactive"
+    });
+
+    statistic.order.total = await Order.countDocuments({});
+    statistic.order.active = await Order.countDocuments({
+        deleted: false
+    });
+    statistic.order.inactive = await Order.countDocuments({
+        deleted: true
+    });
+
     res.render("admin/pages/dashboard/index", {
         pageTitle: "Trang tổng quan",
-        statistic: statistic 
+        statistic: statistic
     });
 };
