@@ -190,7 +190,7 @@ body {
   align-items: center;
   justify-content: space-between;
   border: 2px solid #ddd;
-  width: 330px;
+  max-width: 400px;
   position: fixed;
   top: 100px;
   right: 20px;
@@ -198,11 +198,9 @@ body {
   color: white;
   border-radius: 5px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 2000;
+  z-index: 20000;
   font-size: 16px;
   font-weight: 500;
-  transition: opacity 0.5s ease-out;
-  z-index: 10000;
 }
 
 /* Success notification - green background */
@@ -214,6 +212,7 @@ body {
 .message.info #alert.success .x {
   background-color: #155724;
   color: white;
+  margin-left: 5px;
 }
 
 .message.info #alert.success .x:hover {
@@ -229,6 +228,7 @@ body {
 .message.info #alert.danger .x {
   background-color: #721c24;
   color: white;
+  margin-left: 5px;
 }
 
 .message.info #alert.danger .x:hover {

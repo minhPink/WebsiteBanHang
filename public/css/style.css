@@ -43,6 +43,7 @@ body {
 
 .section-1 .left h1 {
   font-size: 80px;
+  font-weight: 500;
 }
 
 .section-1 .left h1 span {
@@ -65,6 +66,7 @@ body {
   width: 200px;
   padding: 8px;
   border-radius: 60px;
+  text-decoration: none;
 }
 
 .section-1 .left a i {
@@ -706,7 +708,8 @@ body {
   align-items: center;
   justify-content: space-between;
   border: 2px solid #ddd;
-  width: 330px;
+  max-width: 400px;
+  min-width: 200px;
   position: fixed;
   top: 20px;
   right: 20px;
@@ -729,6 +732,7 @@ body {
 .message.info #alert.success .x {
   background-color: #155724;
   color: white;
+  margin-left: 5px;
 }
 
 .message.info #alert.success .x:hover {
@@ -744,6 +748,7 @@ body {
 .message.info #alert.danger .x {
   background-color: #721c24;
   color: white;
+  margin-left: 5px;
 }
 
 .message.info #alert.danger .x:hover {
